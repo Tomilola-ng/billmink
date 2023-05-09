@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Billmink | {% block title %} Pay Freelancers fast and easily {% endblock title %} </title>
+    
+    {% include 'includes/style.html' %}
+
+    <link rel="shortcut icon" href='{% static "images/billmink_logo.png" %}' type="image/x-icon">
+    
+</head>
+
+<body class="dark-mode" id="body">
+
+  <main id="app">
+      <!-- Header -->
+      <header class="epic_header epic_f-inherit sm_w-100 h-calc md_mbt-2">
+          <a href="{% url 'index_view' %}" class="epic_logo sm_fs-5 fs-3 zi-100">
+              <span style="border-radius: 4px; font-weight: 900;" class="bg-col plr-2 f-black">b</span>
+              billmink
+          </a>
+          <div class="gap w-20 md_dp-none sm_dp-none"></div>
+          <nav class="epic_nav mxw-350 zi-100 sm_mh-100vh sm_w-100">
+              {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="bio_link zi-100 o-5"> Logout </a>
+              {% else %}
+                <a href="{% url 'login_view' %}" class="bio_link zi-100"> LOGIN </a>
+              {% endif %}
+              <a href="{% url 'agreement_view' %}" class="bio_link zi-100"> Agreements </a>
+              <a href="{% url 'about_view' %}" class="bio_link zi-100"> About Us </a>
+              <div class="epic_close-nav hover_secondary-alt zi-100">Close</div>
+          </nav>
+          
+          <div class="row zi-100">
+              <div class="epic_menu-btn hover_fill-col">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="menu-icon fill-white" width="25" height="30" viewBox="0 0 16 16">
+                      <path d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                  </svg> 
+              </div>
+  
+              <div class="">
+                  <a href="{% url 'billCreate_view' %}" class="btn secondary lg_plr-3"> New Bill </a>
+              </div>
+          </div> 
+      </header>
+
+      {% block pages %}{% endblock pages %}
+</body>
+</html>

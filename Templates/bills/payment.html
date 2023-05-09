@@ -1,0 +1,135 @@
+{% extends 'base.html' %} {% load static %}
+
+{% block pages %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <section class="mt-3 row jc-sb fw-w">
+        <article class="row fw-w w-100 jc-sb h-80vh pos-relative">
+            {% include 'includes/bg.html' %}
+        </article>
+        
+        <section class="overlay zi-2 col pos-fixed">
+          {% if bill.paid %}
+          <main class="mxw-400 container plr-4">
+            <b class="fs-2 f-col"> The {{ bill }} has been PAID </b>
+            <hr class="w-90 mt-3 mb-5">
+            <p class="o-6 w-90">
+              Billmink helps freelancers easily get paid by international clients. Say goodbye to payment headaches and start focusing on your work.
+            </p>
+            
+            <div class="row jc-sb w-90 mt-5">
+              <a href="{% url 'register_view' %}" class="f-col fs-7 o-6">Sign-Up</a>
+              <a href="{% url 'agreement_view' %}" class="f-col fs-7 o-6">T's and C's</a>
+          </div>
+          {% else %}
+          
+            <main class="mxw-400 container plr-4">
+                <style>
+                    form * {
+                        letter-spacing: 1.1px;
+                    }
+                </style>
+                <b class="fs-2 f-col"> {{ bill }} </b>
+                <hr class="w-90 mt-3 mb-5">
+                <p class="o-6 w-90">
+                    Add your email to pay {{ bill.user }} the pending {{ bill.bill_type }}
+                </p>
+                <br><br>
+                <p>
+                  <label for="payMail"> Your email : </label>
+                  <input type="email" name="payMail" id="payMail">
+                </p>
+                <button id="payBtn" class="btn primary mt-3 w-120px dp-none"  onclick="payWithPaystack()">Pay💴</button>
+
+                <div class="row jc-sb w-90 mt-5">
+                    <a href="{% url 'index_view' %}" class="f-col fs-7 o-6">Back to Site</a>
+                    <a href="{% url 'agreement_view' %}" class="f-col fs-7 o-6">T's and C's</a>
+                </div>
+              </main>
+
+          {% endif %}
+        </section>
+
+    </section>
+
+    <script src="https://js.paystack.co/v1/inline.js"></script> 
+    <script>
+
+      let payMail = document.getElementById('payMail');
+      let payBtn = document.getElementById('payBtn');
+  
+      let  b_amount = "{{ bill.amount }}"
+      let  b_currency = "{{ bill.currency }}"
+      let  b_ref = "{{ bill.ref }}"
+      let  b_public_key = "{{ public_key }}"
+    
+    function validateEmail() {
+      const emailInput = document.getElementById('payMail');
+      const emailValue = emailInput.value.trim();
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (emailRegex.test(emailValue)) {
+        payBtn.classList.remove('dp-none');
+        payBtn.classList.add('right-in');
+        return;
+      } else {
+         if (!payBtn.classList.contains('dp-none')) {
+          payBtn.classList.add('dp-none');
+          payBtn.classList.remove('right-in');
+        }
+      }
+    }
+
+    const emailInput = document.getElementById('payMail');
+    emailInput.addEventListener('input', validateEmail);
+
+    function payWithPaystack() {
+      var handler = PaystackPop.setup({
+        key: b_public_key, // Replace with your public key
+        email: payMail.value,
+        amount: b_amount * 100, // the amount value is multiplied by 100 to convert to the lowest currency unit
+        currency: b_currency, // Use GHS for Ghana Cedis or USD for US Dollars
+        ref: b_ref, // Replace with a reference you generated
+        metadata: {
+         custom_fields: [
+            {
+               display_name: "{{ bill.bill_type }}",
+               variable_name: "{{ bill.bill_type }}",
+               value: "{{ bill.amount }}"
+            }
+         ]
+      },
+      callback: function(response) {
+        // Make AJAX request to server to update bill as paid
+        // Example:
+        
+        $.post("{% url 'update_bill' %}", {
+          bill_id: '{{ bill.id }}',
+          payerEmail: payMail.value,
+          reference: response.reference 
+        },
+           
+          function(data) {  
+            console.log("bill_id:", bill_id);
+            console.log("reference:", response.reference);
+
+            if (data.success) {
+              // Redirect to success page
+              window.location.href = "{% url 'payment_success' bill.id %}";
+            } else {
+              // Display error message
+              alert('Error: ' + data.error_message);
+            }
+          });
+      },
+
+      onClose: function() {
+        alert('Transaction was not completed, window closed.');
+      },
+
+    });
+      handler.openIframe();
+    }
+    </script>
+{% endblock pages %}

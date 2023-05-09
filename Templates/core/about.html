@@ -1,0 +1,139 @@
+{% extends 'base.html' %} {% load static %}
+
+<title>About Us | Billmink</title>
+{% block pages %}
+    <style>
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        p, summary {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+        }
+        details p {
+            margin-bottom: 0;
+        }
+        .section {
+            margin-bottom: 50px;
+        }
+        .section-heading {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .testimonial {
+            border-left: 6px solid #12d18e;
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+        .testimonial p {
+            font-style: italic;
+        }
+        .person {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .quote {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+    </style>
+
+    <!-- Page Content -->
+    <div class="container">
+        <h1>About Us</h1>
+
+        <div class="section">
+            <h2>Our Mission</h2>
+            <p>At Billmink, our mission is to provide a simple, secure, and reliable platform for freelancers and small businesses to receive payments from clients all over the world. We understand the struggles that freelancers face when it comes to getting paid by international clients, and we're here to help simplify the process and provide peace of mind.</p>
+        </div>
+
+        <div class="section">
+            <h2>Who We Serve</h2>
+            <p>We serve a variety of individuals and businesses, including:</p>
+            <ul>
+                <li><strong>Freelancers:</strong> Whether you're a writer, designer, developer, or consultant, we can help you get paid for your work.</li>
+                <li><strong>Small Businesses:</strong> If you own a small business, we can help you accept payments from clients all over the world.</li>
+                <li><strong>Nonprofits:</strong> We work with nonprofits to help them receive donations from supporters all over the world.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Meet Our Customers</h2>
+
+            <p>Our platform has helped thousands of freelancers and small business owners around the world to simplify their payment processes and get paid faster. Here are some of their stories:</p>
+
+            <details>
+                <summary>John - Freelance Writer</summary>
+                <p>John is a freelance writer based in Canada who has been struggling to get paid by his international clients. He often finds himself chasing down late payments and dealing with complex payment processes.</p>
+                <p>Since joining Billmink, John has been able to streamline his payment processes and receive payments from clients all over the world without any hassle. He loves how easy it is to use the platform and how quickly he can access his funds.</p>
+                <p>"Billmink has been a game-changer for me. I no longer have to waste time chasing down payments or dealing with complicated payment processes. It's easy to use and has helped me get paid faster than ever before."</p>
+            </details>
+            
+            <details>
+                <summary>Emily - Small Business Owner</summary>
+                <p>Emily runs a small boutique in the United States and has recently started selling her products to customers overseas. She found that traditional payment methods were not reliable and often resulted in delays and lost payments.</p>
+                <p>Since switching to Billmink, Emily has been able to easily receive payments from her international customers and has experienced fewer payment delays. She also appreciates the added security features that keep her transactions safe.</p>
+                <p>"I was hesitant to try an online payment platform, but Billmink has exceeded my expectations. It's easy to use and has helped me grow my business by simplifying my payment processes. I would highly recommend it to anyone looking for a reliable payment solution."</p>
+            </details>
+            
+            <details>
+                <summary>Mohammed - Consultant</summary>
+                <p>Mohammed is a consultant based in the Middle East who works with clients from all over the world. He found that traditional payment methods were often slow and unreliable, resulting in delayed payments and frustrated clients.</p>
+                <p>Since joining Billmink, Mohammed has been able to receive payments from his clients quickly and easily, no matter where they are located. He loves how user-friendly the platform is and how it has simplified his payment processes.</p>
+                <p>"Billmink has been a lifesaver for me. It's easy to use and has helped me get paid faster than ever before. My clients are happy, and I can focus on doing what I love without worrying about payment delays."</p>
+            </details>
+            
+        </div>
+
+        <div class="section">
+            <h2>How It Works</h2>
+            <p>Our platform is designed to make it easy for freelancers and small business owners to receive payments from clients all over the world. Here's how it works:</p>
+
+            <ol>
+                <li>Create an account with us by providing your basic information.</li>
+                        <li>Add your payment information, including your preferred payment method and currency.</li>
+                        <li>Send your payment link to your client through email or any other messaging platform of your choice.</li>
+                        <li>Once your client makes the payment, the funds will be transferred to your Billmink account.</li>
+                        <li>You can then withdraw your funds to your bank account or any other payment method of your choice.</li>
+            </ol>
+            
+            <p>It's that simple! Our platform is designed to be user-friendly
+
+        </div>
+
+
+        <div class="section">
+            <h2>Get in Touch</h2>
+            <p>If you have any questions or concerns about our services, or if you just want to say hello, feel free to get in touch with us. You can reach us by email, phone, or through our social media channels. Our customer support team is always available to assist you with any issues you may encounter.</p>
+            <ul>
+                <li>Email: billinkhq@gmail.com</li>
+                <li>Phone: +234 90 8034 7640 </li>
+                <li>Social Media: 
+                    <ul>
+                        <li><a class="f-grey o-2" href="#">Facebook</a></li>
+                        <li><a class="f-grey o-2" href="#">Twitter</a></li>
+                        <li><a class="f-grey o-2" href="#">Instagram</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        {% endblock %}

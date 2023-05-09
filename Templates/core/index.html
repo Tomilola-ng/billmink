@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pages %}
+    <section id="home" class="lg_mt-3 row jc-sb fw-w">
+
+        <article id='home-land' class="row fw-w jc-se w-100 h-70vh sm_h-75vh bg-black pt-6 sm_pt-0 o-hide m-auto">
+            
+            <div class="gap mbt-2 sm_dp-non"></div>
+
+            <div class="text mxw-350 sm_mxw-300 m-auto p-2 zi-2">
+                <b class="fs-1 f-col">Efficient billing</b>
+                <p class="mt-2">
+                    Generate a bill payment link and share to clients, loved ones for seamless transactions.
+                </p>
+                <div class="mt-5 righ-in">
+                    <a href="{% url 'register_view' %}" class="secondary bx-sh btn mr-2 plr-3 ep-arrow-right"> Get Started </a>
+                </div>
+            </div>
+
+            <div class="w-100 mxw-350 sm_mxw-300 lg_mt-6 sm_mbt-4 m-auto zi-2">
+                <div id="bill-log" class="right-in w-100 mxw-300 bdrs bx-sh-2-col p-2 pos-relative o-hide col">
+                    <b id="bill" class="mbt-1 fs-5 ep-lightning-fill w-100"> Electricity bill </b>
+                    <hr>
+                    <small class="w-100">
+                    <b>Status : </b> <span id="status">Paid</span>
+                        <div class="w-100 pt-1"></div>
+                    <b>Since : </b> <span id="date">2nd, December 2022</span>
+                        <div class="w-100 pt-1"></div>
+                    <b>Paid by : </b> <span id="name">John Doe</span>
+                    </small>
+                    <span class="secondary pos-absolute top-right bdrs_bl plr-2">
+                        $ <span id="amount">200</span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="svg w-100">
+                <?xml version="1.0" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" class="fill-black" viewBox="0 0 1440 320"><path fill="var(--black)" fill-opacity="1" d="M0,64L30,85.3C60,107,120,149,180,144C240,139,300,85,360,96C420,107,480,181,540,192C600,203,660,149,720,144C780,139,840,181,900,176C960,171,1020,117,1080,122.7C1140,128,1200,192,1260,208C1320,224,1380,192,1410,176L1440,160L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"></path></svg>
+            </div>
+
+            <script>
+                let toggle = true;
+                function updateBill() {
+                    let da = new Date()
+                    if (toggle) {   
+                        document.getElementById('bill').innerText = ' Grocery Bill';
+                        document.getElementById('amount').innerText = '300';
+                        document.getElementById('status').innerText = 'Pending';
+                        document.getElementById('date').innerText = da.toDateString();
+                        document.getElementById('name').innerText = '😶 No one';
+                        document.getElementById('bill').classList.replace('ep-lightning-fill', 'ep-shop')
+                        toggle = false;
+                    } else {   
+                        document.getElementById('bill').innerText = ' Electricity Bill';
+                        document.getElementById('amount').innerText = '200';
+                        document.getElementById('status').innerText = 'Paid';
+                        document.getElementById('date').innerText = '2nd, December 2022';
+                        document.getElementById('name').innerText = 'John Doe';
+                        document.getElementById('bill').classList.replace('ep-shop', 'ep-lightning-fill')
+                        toggle = true;
+                    }
+                    document.getElementById('bill-log').classList.toggle('right-in');
+                    document.getElementById('bill-log').classList.toggle('left-in');
+                }
+                setInterval(() => {
+                    updateBill();
+                }, 5000);
+            </script>
+        </article>
+        
+        
+        <article class="container mt-0 mb-6 row fw-w">
+            <h1 class="fs-1 ep-lock-fill bold ta-c w-100"> What is Billmink? </h1>
+            <article class="container mxw-400 sm_mxw-300 lg_plr-0">
+                <p class="ta-c gap mbt-4 plr-0">
+                    Billmink is a fin-tech company that makes bill payment and international transactions fast and easy 🚀. It provides flexibility for users to make payments, it also allows loved ones ❤💕 to help pay bills. It integrates with Paystack for payment transactions ✅. Billmink aims to make it easier for people to pay bills and keep track of their expenses with ease anywhere around the world.
+                </p>
+            </article>
+
+
+            <div class="container mxw-350 bdrs-md o-hide p-0 bx-sh">
+                <img src="{% static 'images/billmink_logo.png' %}" alt=".">
+            </div>
+        </article>
+
+        <article class="h-calc mb-4 row jc-sa fw-w container mxw-1000 mb-0">
+            <div class="col bdrs bx-sh-2-col p-4 fs-2 ta-c mxw-450">
+                Sign-Up as a Beta Tester
+                <div class="gap"></div>
+                <a href="{% url 'register_view' %}" class="bdrs-pill btn plr-3 bx-sh-white container mxw-200 fs-6 f-black row jc-sa underline">Sign-Up Now <i class="ep-arrow-right f-black"></i> </a>
+            </div>
+            <div class="svg w-350px">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi ep-eyeglasses" viewBox="0 0 16 16">
+                    <path d="M4 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm2.625.547a3 3 0 0 0-5.584.953H.5a.5.5 0 0 0 0 1h.541A3 3 0 0 0 7 8a1 1 0 0 1 2 0 3 3 0 0 0 5.959.5h.541a.5.5 0 0 0 0-1h-.541a3 3 0 0 0-5.584-.953A1.993 1.993 0 0 0 8 6c-.532 0-1.016.208-1.375.547zM14 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
+                  </svg>
+            </div>
+        </article>
+        
+        {% if formname %}
+            {% include 'core/form.html' %}
+        {% endif %}
+        
+        {% include 'includes/footer.html' %}
+    </section>
+{% endblock pages %}

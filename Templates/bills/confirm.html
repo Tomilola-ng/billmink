@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block pages %}
+    <section class="mt-3 row jc-sb fw-w">
+        {% include 'includes/bg.html' %}
+        
+        <article class="overlay zi-2 col pos-fixed">
+            <form action="" method="post" class="mxw-400 container plr-4">
+                {% csrf_token %}
+                <style>
+                    form * {
+                        color: var(--white);
+                        letter-spacing: 1.1px;
+                    }
+                </style>
+                <b class="fs-2 f-col"> Delete Bill </b>
+                <hr class="w-90 mt-3 mb-5">
+                <p>
+                    Are you sure you want to delete the {{ object}}
+                </p>
+                <div class="row jc-sb w-90 mt-5">
+                    <button type="submit" class="btn error fs-6 plr-3">Delete</button>
+                    <a href="{% url 'index_view' %}" class="f-col fs-7">Back to Dashboard</a>
+                </div>
+            </form>
+        </article>
+
+    </section>
+{% endblock pages %}

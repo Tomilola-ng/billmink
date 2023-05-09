@@ -1,0 +1,73 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'Packages/anim.css' %}">
+<link rel="stylesheet" href="{% static 'Packages/classes.css' %}">
+<link rel="stylesheet" href="{% static 'Packages/colour.css' %}">
+<link rel="stylesheet" href="{% static 'Packages/epic.css' %}">
+<link rel="stylesheet" href="{% static 'Packages/font.css' %}">
+<link rel="stylesheet" href="{% static 'Packages/icon.css' %}">
+<link rel="stylesheet" href="{% static 'Packages/lg_classes.css' %}">
+<link rel="stylesheet" href="{% static 'Packages/md_classes.css' %}">
+<link rel="stylesheet" href="{% static 'Packages/sm_classes.css' %}">
+<link rel="stylesheet" href="{% static 'Packages/sizes.css' %}">
+<link rel="stylesheet" href="{% static 'Packages/style.css' %}">
+<script src="{% static 'Packages/epic.js' %}"></script>
+
+
+    <style>
+      h1 {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+        #photo-clear_id {
+          display: none;
+        }
+        label {
+          font-size: 90%;
+          display: block;
+        }
+        form p span.helptext,
+        form ul li {
+          font-size: 60%;
+          width: 85%;
+          opacity: 0.8;
+          color: var(--gray);
+        }
+        form p span.helptext {
+          padding-left: 25px;
+        }
+        form * {
+            color: var(--white);
+            letter-spacing: 1.1px;
+        }
+        form ul.errorlist li {
+          color: var(--red);
+          font-size: 0.7rem;
+        }
+        form .errorlist {
+            background-color: #fff;
+            border-radius: 2px;
+            width: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 0.5em;
+        }
+        form option {
+            color: black !important
+        }
+        form p select {
+            width: 90%;
+        }
+        :root {
+            --col : #12d18e;
+        }
+      </style>
+      

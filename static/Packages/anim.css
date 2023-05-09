@@ -1,0 +1,89 @@
+.right-in {
+    animation: right-in 700ms;
+}
+.drop-in {
+    animation: drop-in 700ms;
+}
+.left-in {
+    animation: left-in 700ms;
+}
+.up-in {
+    animation: up-in 700ms;
+}
+.roll-in {
+    animation: roll-in 700ms;
+}
+
+
+.anim_r-1 { animation-iteration-count: 1 }
+.anim_r-2 { animation-iteration-count: 2 }
+.anim_r-3 { animation-iteration-count: 3 }
+.anim_r-4 { animation-iteration-count: 4 }
+.anim_r-5 { animation-iteration-count: 5 }
+
+.anim_repeat-1 { animation-iteration-count: 1 }
+.anim_repeat-2 { animation-iteration-count: 2 }
+.anim_repeat-3 { animation-iteration-count: 3 }
+.anim_repeat-4 { animation-iteration-count: 4 }
+.anim_repeat-5 { animation-iteration-count: 5 }
+
+.anim_repeat-infinite { animation-iteration-count: infinite }
+
+.anim_d-1 { animation-duration: 1s }
+.anim_d-2 { animation-duration: 2s }
+.anim_d-3 { animation-duration: 3s }
+.anim_d-4 { animation-duration: 4s }
+.anim_d-5 { animation-duration: 5s }
+
+
+
+@keyframes right-in {
+    0%,
+    20% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    50% {
+      opacity: 0.2;
+    }
+}
+@keyframes left-in {
+    0%,
+    20% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    50% {
+      opacity: 0.2;
+    }
+}
+@keyframes up-in {
+    0%,
+    20% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    50% {
+      opacity: 0.2;
+    }
+}
+@keyframes drop-in {
+    0%,
+    20% {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    50% {
+      opacity: 0.2;
+    }
+}
+
+@keyframes roll-in {
+    0% {
+      opacity: 0.4;
+      transform: rotate(30deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
