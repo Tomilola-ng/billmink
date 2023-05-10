@@ -29,13 +29,13 @@
             <form method="post" class="mxw-400 container plr-4">
                 {% csrf_token %}
                 <b class="fs-3 f-col"> Create Account </b>
-                <hr class="w-90 mt-3 mb-4">
+                <hr class="w-90 mbt-1">
                 
                 {{ form.as_p }}
-                <hr class="w-90 0-6">
+       
                 {{ form_2.as_p }}
 
-                <div class="row jc-sb w-90 mt-4">
+                <div class="row jc-sb w-90">
                     <button type="submit" class="btn secondary fs-6 plr-3">Submit</button>
                     <a href="{% url 'login_view' %}" class="f-col fs-7">Login Here</a>
                 </div>  
