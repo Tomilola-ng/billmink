@@ -11,7 +11,7 @@
             <div class="text mxw-350 sm_mxw-300 m-auto p-2 zi-2">
                 <b class="fs-1 f-col">Efficient billing</b>
                 <p class="mt-2">
-                    Generate a bill payment link and share to clients, loved ones for seamless transactions.
+                    Get paid from international clients with just a link.
                 </p>
                 <div class="mt-5 righ-in">
                     <a href="{% url 'register_view' %}" class="secondary bx-sh btn mr-2 plr-3 ep-arrow-right"> Get Started </a>
@@ -20,7 +20,7 @@
 
             <div class="w-100 mxw-350 sm_mxw-300 lg_mt-6 sm_mbt-4 m-auto zi-2">
                 <div id="bill-log" class="right-in w-100 mxw-300 bdrs bx-sh-2-col p-2 pos-relative o-hide col">
-                    <b id="bill" class="mbt-1 fs-5 ep-lightning-fill w-100"> Electricity bill </b>
+                    <b id="bill" class="mbt-1 fs-5 ep-lightning-fill w-100"> Freelance bill </b>
                     <hr>
                     <small class="w-100">
                     <b>Status : </b> <span id="status">Paid</span>
@@ -44,7 +44,7 @@
                 function updateBill() {
                     let da = new Date()
                     if (toggle) {   
-                        document.getElementById('bill').innerText = ' Grocery Bill';
+                        document.getElementById('bill').innerText = ' Design Bill';
                         document.getElementById('amount').innerText = '300';
                         document.getElementById('status').innerText = 'Pending';
                         document.getElementById('date').innerText = da.toDateString();
@@ -52,7 +52,7 @@
                         document.getElementById('bill').classList.replace('ep-lightning-fill', 'ep-shop')
                         toggle = false;
                     } else {   
-                        document.getElementById('bill').innerText = ' Electricity Bill';
+                        document.getElementById('bill').innerText = ' Freelance Bill';
                         document.getElementById('amount').innerText = '200';
                         document.getElementById('status').innerText = 'Paid';
                         document.getElementById('date').innerText = '2nd, December 2022';
@@ -74,7 +74,7 @@
             <h1 class="fs-1 ep-lock-fill bold ta-c w-100"> What is Billmink? </h1>
             <article class="container mxw-400 sm_mxw-300 lg_plr-0">
                 <p class="ta-c gap mbt-4 plr-0">
-                    Billmink is a fin-tech company that makes bill payment and international transactions fast and easy 🚀. It provides flexibility for users to make payments, it also allows loved ones ❤💕 to help pay bills. It integrates with Paystack for payment transactions ✅. Billmink aims to make it easier for people to pay bills and keep track of their expenses with ease anywhere around the world.
+                    Billmink is a fin-tech company that helps freelancers and small business owners to collect payment from international transactions fast and without them bothering about Currency exchange 🚀. It provides flexibility for users to make payments, it also allows loved ones ❤💕 to help pay bills. It integrates with Paystack for payment transactions ✅. Billmink aims to make it easier for people to pay bills and keep track of their expenses with ease anywhere around the world.
                 </p>
             </article>
 

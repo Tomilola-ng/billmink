@@ -89,3 +89,6 @@ class Withdraw(models.Model):
 
     def __str__(self):
         return f'{self.profile}'
+    
+    class Meta:
+        ordering = ['-date']

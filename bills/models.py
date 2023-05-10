@@ -57,7 +57,7 @@ class Bill(models.Model):
             return 'Pending'
 
     def link(self):
-        return f'http://localhost:8000/bill/{self.id}/payment' 
+        return f'http://{settings.DOMAIN_PATH}/bill/{self.id}/payment/' 
     
     def payment_verify(self):
         paystack = Paystack()

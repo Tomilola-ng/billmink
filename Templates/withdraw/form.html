@@ -30,10 +30,10 @@
             let user_balance = document.querySelector('#balance').value;
 
             input.addEventListener('input', () => {
-                if ( input.value > user_balance || input.value < 100 ) {
-                    btn.classList.add('dp-none')
-                } else {
+                if ( input.value <= user_balance && input.value > 100 ) {
                     btn.classList.remove('dp-none')
+                } else {
+                    btn.classList.add('dp-none')
                 }
             });
         </script>

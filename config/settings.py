@@ -5,31 +5,36 @@ from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', cast = bool)
+DEBUG = False
 
 PAYSTACK_SECRET_KEY = config('test_PAYSTACK_SECRET_KEY')
 PAYSTACK_PUBLIC_KEY = config('test_PAYSTACK_PUBLIC_KEY')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://*.railway.app']
 
 
 # Application definition
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.contenttypes',
+    'django.contrib.sites',
+    'django.contrib.admin',
     'django.contrib.sessions',
+    'django.contrib.sitemaps',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.contenttypes',
+   
     # My apps
-    'accounts',
     'bills',
+    'accounts',
     'paystack',
     "phonenumber_field",
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -91,13 +96,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
     Custom Settings
 """
 
+SITE_ID = 1
+
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 LOGIN_URL = 'login_view'
-
 LOGIN_REDIRECT_URL = 'index_view'
-
 LOGOUT_REDIRECT_URL = 'index_view'
 
 MEDIA_URL='/media/'
 MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
+
+DOMAIN_PATH = 'localhost:8000'

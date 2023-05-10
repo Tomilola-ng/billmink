@@ -9,7 +9,7 @@ from django .conf.urls.static import static
 from accounts.sitemaps import StaticViewSitemap
 from django.contrib.sitemaps.views import sitemap
 
-sitemaps = {
+sitemaps_app = {
     'static': StaticViewSitemap,
 }
 
@@ -28,7 +28,7 @@ urlpatterns = [
     path('', include('accounts.urls')),
 
     # SITEMAPS
-    path('sitemap.xml/', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('links.xml/', sitemap, {'sitemaps': sitemaps_app}),
 
     # Auth Views
     path('login/', auth_views.LoginView.as_view(template_name = 'auth/login.html'), name='login_view'),

@@ -1,8 +1,8 @@
 import requests
-from .utils import month
 from django.urls import reverse
 from django.conf import settings
 from .models import Bill, Activity
+from .utils import deposited_amount
 from django.contrib import messages
 from django.utils.timezone import now
 from django.views.decorators.csrf import csrf_exempt
@@ -14,7 +14,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 def activity(request):
-    obj = Activity.objects.filter(profile = request.user.profile)
+    obj = reversed(Activity.objects.filter(profile = request.user.profile))
     
     context = {
         'obj': obj,
@@ -144,11 +144,20 @@ def update_bill(request):
         expected_amount = bill.amount * 100 # Paystack API uses kobo instead of naira
         if data['data']['amount'] != expected_amount:
             # Payment amount does not match expected amount
-            bill.user.profile.account_balance = bill.user.profile.account_balance  + expected_amount / 100  # Convert kobo to naira
-            bill.user.profile.save()
             return JsonResponse({'success': False, 'error_message': 'Payment amount does not match expected amount'})
 
+        """
+            Update account balance, bill model
+        """
+
+        e_amount = expected_amount # Save expected amount in an unaffected variable
+        amount_deposited = e_amount / 100 #back to Naira
+        amount_in_bank = deposited_amount(amount_deposited) # gets the money in bank and removes 1 percent interest
+
+        bill.user.profile.account_balance = bill.user.profile.account_balance  + amount_in_bank  # Updates the account_balance
+        bill.user.profile.save() # Commits the update
         # Update Bill object as paid
+
         bill.paid = True
         bill.paid_by = payer_email
         bill.save()

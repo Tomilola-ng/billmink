@@ -1,0 +1,2 @@
+CORRECT DOMAIN_PATH field 
+CHANGE DEBUG to True
