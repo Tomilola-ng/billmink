@@ -107,7 +107,7 @@ LOGOUT_REDIRECT_URL = 'index_view'
 MEDIA_URL='/media/'
 MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 
-DOMAIN_PATH = 'localhost:8000'
+DOMAIN_PATH = os.environ.get('DOMAIN_PATH')
 
 """
     Deployment Settings
