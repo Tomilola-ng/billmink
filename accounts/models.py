@@ -59,7 +59,7 @@ class Profile(models.Model):
         return self.fullname.split()[0]
     
     def __str__(self):
-        return f'{self.user}\'s Profile'
+        return f'{self.fullname.split()[0]}\'s Profile'
     
     def save(self):
         try:

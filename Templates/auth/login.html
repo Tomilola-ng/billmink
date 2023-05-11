@@ -1,29 +1,40 @@
 {% extends 'base.html' %}
 
 {% block pages %}
-<section id="login" class="mt-3 row jc-sb fw-w">
+<section id="login" class="mt-3 row jc-sb fw-w m-auto">
     {% include 'includes/bg.html' %}
     
     <article class="overlay zi-2 col pos-fixed">
-        <form method="post" class="mxw-400 right-in container plr-4">
-                {% csrf_token %}
-                <b class="fs-3 f-col"> Welcome Back </b>
-                <hr class="w-90 mt-3 mb-4">
+        <form method="post" class="md_mxw-400 right-in container plr-2">
+            {% csrf_token %}
+            <b class="fs-3 f-col"> Welcome Back </b>
+            {% if form.errors %}
+                <br>
+                {% for field_errors in form.errors.values %}
+                {% for error in field_errors %}
+                    <div class="btn bg-white w-90 p-2 fs-7 f-red">
+                        • {{ error }} 
+                        <br>
+                    </div>
+                {% endfor %}
+                {% endfor %}
+            {% endif %}
+            <hr class="w-90 mb-4">
 
-                <p>
-                    <label for="id_username">Phone Number:</label>
-                    <input type="number" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="12" required id="id_username">
-                </p>
-                
-                <p>
-                    <label for="id_password">Password:</label>
-                    <input type="password" name="password" autocomplete="current-password" required id="id_password">
-                </p>
+            <p>
+                <label for="id_username">Phone Number:</label>
+                <input type="number" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="12" required id="id_username">
+            </p>
+            
+            <p>
+                <label for="id_password">Password:</label>
+                <input type="password" name="password" autocomplete="current-password" required id="id_password">
+            </p>
 
-                <div class="row jc-sb w-90 mt-4">
-                    <button type="submit" class="btn secondary fs-6 plr-3">Submit</button>
-                    <a href="{% url 'register_view' %}" class="f-col fs-7">New Account</a>
-                </div>  
+            <div class="row jc-sb w-90 mt-4">
+                <button type="submit" class="btn secondary fs-6 plr-3">Submit</button>
+                <a href="{% url 'register_view' %}" class="f-col fs-7">New Account</a>
+            </div>  
         </form>
     </article>
 

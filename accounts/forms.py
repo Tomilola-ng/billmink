@@ -15,4 +15,5 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         fields = ['fullname', 'socialmedia']
 
-    socialmedia = forms.URLField(validators=[URLValidator()], required=True)        
+    fullname = forms.CharField(label='Full name')
+    socialmedia = forms.URLField(validators=[URLValidator()], required=True, label='Social Media URL')        

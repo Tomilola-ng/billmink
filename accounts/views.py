@@ -50,7 +50,7 @@ def register(req):
             profile = form_2.save(commit=False)
             profile.user = user
             profile.save()
-            return redirect('login_view')
+            return redirect('signup_done_view')
         else:
             return render(req, 'auth/register.html', context )
     return render(req, 'auth/register.html', context )
@@ -64,6 +64,9 @@ def page_not_found(req, exception):
 
 def wait(req):
     return render(req, 'withdraw/wait.html')
+
+def signup_done(req):
+    return render(req, 'auth/register_done.html')
 
 """
     Custom Views : Classes

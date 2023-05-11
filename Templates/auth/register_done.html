@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block pages %}
+<section class="mt-3 row jc-sb fw-w m-auto">
+    {% include 'includes/bg.html' %}
+    
+    <article class="overlay zi-2 col pos-fixed">
+        <p>
+            You've signed up successfully, Login here
+        </p>
+
+        <a href="{% url 'login_view' %}" class="btn secondary fs-5 plr-3 bdrs-pill "> Login Here <i class="ep-arrow-right"></i></a>
+    </article>
+
+</section>
+{% endblock pages %}
