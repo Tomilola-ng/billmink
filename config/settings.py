@@ -7,8 +7,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = os.environ.get('DEBUG')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-PAYSTACK_SECRET_KEY = os.environ.get('test_PAYSTACK_SECRET_KEY')
-PAYSTACK_PUBLIC_KEY = os.environ.get('test_PAYSTACK_PUBLIC_KEY')
+PAYSTACK_SECRET_KEY = os.environ.get('PAYSTACK_SECRET_KEY')
+PAYSTACK_PUBLIC_KEY = os.environ.get('PAYSTACK_PUBLIC_KEY')
 
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['https://*.railway.app']
