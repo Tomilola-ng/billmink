@@ -17,7 +17,7 @@
                 {{ form.as_p }}
                 
                 <span type="hidden" value="{{ balance }}" id="balance">
-                <div id="post-div" class="row jc-sb w-90 mt-4 dp-none">
+                <div id="post-div" class="row jc-sb w-90 mt-4 dp-noe">
                     <button type="submit" class="btn secondary fs-6 plr-3 right-in">Submit</button>
                     <a href="{% url 'index_view' %}" class="f-col fs-7">Dashboard</a>
                 </div>  
@@ -25,7 +25,7 @@
         </article>
          
         <script>
-            let btn = document.querySelector('#post-div'); 
+           /* let btn = document.querySelector('#post-div'); 
             let input = document.querySelector('#id_amount'); 
             let user_balance = document.querySelector('#balance').value;
 
@@ -35,7 +35,7 @@
                 } else {
                     btn.classList.add('dp-none')
                 }
-            });
+            });*/
         </script>
     </section>
 {% endblock pages %}
