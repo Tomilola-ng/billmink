@@ -1,6 +1,6 @@
 let qs = (e) => document.querySelector(e);
 let qsa = (e) => document.querySelectorAll(e);
-
+ 
 document.addEventListener('DOMContentLoaded', () => {
     // Const variables
     const h_calcs = qsa('.h-calc');
@@ -122,7 +122,7 @@ for (let i = 0; i < links.length; i++) {
     linked.type = 'text/css';
     linked.rel = 'stylesheet';
     linked.media = 'all'
-    linked.href = `{% static "${links[i]}" %}`
+    linked.href = links[i]
     
     document.querySelector('head').append(linked);    
 }

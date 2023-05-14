@@ -2,105 +2,174 @@
 {% load static %}
 
 {% block pages %}
-    <section id="home" class="lg_mt-3 row jc-sb fw-w">
 
-        <article id='home-land' class="row fw-w jc-se w-100 h-70vh sm_h-75vh bg-black pt-6 sm_pt-0 o-hide m-auto">
-            
-            <div class="gap mbt-2 sm_dp-non"></div>
+<section id="home" class="lg_mt-3 row jc-sb fw-w lg_plr-6">
 
-            <div class="text mxw-350 sm_mxw-300 m-auto p-2 zi-2">
-                <b class="fs-1 f-col">Efficient billing</b>
-                <p class="mt-2">
-                    Get paid from international clients with just a link.
-                </p>
-                <div class="mt-5 righ-in">
-                    <a href="{% url 'register_view' %}" class="secondary bx-sh btn mr-2 plr-3 ep-arrow-right"> Get Started </a>
-                </div>
+    <!-- Landing Page -->
+    <article class="row fw-w jc-se w-100 mh-75vh sm_mh-100vh lg_plr-6 lg_pt-3 m-auto mb-3 sm_mt-3">
+        <div class="text mxw-350 sm_mxw-300 m-auto sm_p-2 zi-2 sm_ta-c sm_mt-5 fs-1">
+            <h1 class="fs-1 md_fs-2 bolder mb-0 pb-0"> Simplifying payments for you </h1>
+            <p class="fs-6 f-gray mt-3 pt-0">
+                Collect <span class="bold f-col">payments</span> from clients, friends and families from  anywhere in the world in your own currency just by sharing a link.
+            </p>
+            <div class="mt-3">
+                <a href="{% url 'register_view' %}" class="secondary btn mr-2 plr-3 bdrs-pill ep-arrow-right fs-6 mt-0"> Get Started </a>
             </div>
+        </div>
 
-            <div class="w-100 mxw-350 sm_mxw-300 lg_mt-6 sm_mbt-4 m-auto zi-2">
-                <div id="bill-log" class="right-in w-100 mxw-300 bdrs bx-sh-2-col p-2 pos-relative o-hide col">
-                    <b id="bill" class="mbt-1 fs-5 ep-lightning-fill w-100"> Freelance bill </b>
-                    <hr>
-                    <small class="w-100">
-                    <b>Status : </b> <span id="status">Paid</span>
-                        <div class="w-100 pt-1"></div>
-                    <b>Since : </b> <span id="date">2nd, December 2022</span>
-                        <div class="w-100 pt-1"></div>
-                    <b>Paid by : </b> <span id="name">John Doe</span>
-                    </small>
-                    <span class="secondary pos-absolute top-right bdrs_bl plr-2">
-                        $ <span id="amount">200</span>
+        <div class="w-100 mxw-400 sm_mxw-300 mt-6 sm_mb-4 m-auto zi-2 anim_down observe_anim">
+            <img src='{% static "./bilmink-landing-page-illustration.svg" %}' alt="" class="bd-2-col bdrs w-100 main_illustration">
+        </div>
+    </article>
+    
+    <!-- Product Page -->
+    <article class="row fw-w jc-se w-100 m-auto mbt-3">
+        <div class="btn bdrs-pill bg-dark-blue fs-2 m-auto bolder as-fs pos-relative ta-c"> <i class="ep-wallet2"></i> Our payments solutions <hr class="pos-absolute o-2 w-100vw center epic_to-back mbt-0 f-col"> </div>
+
+        <div class="w-100 mbt-4"></div>
+
+        <div class="card mxw-400 container sm_plr-3 mb-3">
+            <i class="f-col ep-cash fs-1"></i>
+            <h1 class="fs-5 bold"> Payment Collection From <br class="sm_dp-none"> every Client </h1>
+            <p class="f-gray mt-2"> We make it easy to collect payments from clients in your country or abroad, without the hassle of foreign exchange. clients also find it easy and secured to pay with just a few clicks on a payment page. </p>
+        </div>
+        <div class="card mxw-400 container sm_plr-3 mb-3">
+            <i class="f-col ep-people-fill fs-1"></i>
+            <h1 class="fs-5 bold"> Collecting Donations and <br class="sm_dp-none"> Funding with Ease </h1>
+            <p class="f-gray mt-2"> We give users options to collect donations, funding and even Patreon payments effortlessly. While providing analytics of user clicks and providing a user-friendly checkout process to your clients </p>
+        </div>
+        <div class="card mxw-350 container sm_plr-3 mb-3">
+            <i class="f-col ep-person-heart fs-1"></i>
+            <h1 class="fs-5 bold"> Friends and Family Abroad <br class="sm_dp-none"> can Help with Bills </h1>
+            <p class="f-gray mt-2"> Billmink allows users to easily share a payment link with friends and family abroad to help pay a bill. This saves users from expensive international transfer fees. </p>
+        </div>
+
+        <div class="w-100 mbt-4"></div>
+
+        <div class="mxw-800 container col sm_mh-60vh">
+            <h1 class="ta-c fs-2 bolder mb-5">
+                Start collecting payments, donations, and funding today with Billmink
+            </h1>
+            <a href="{% url 'register_view' %}" class="btn secondary fs-5 plr-3 bdrs-pill"> 
+                <i class="ep-arrow-right-circle"></i> Sign Up Now
+            </a>
+        </div>
+
+    </article>
+
+    <!-- Review Page -->
+    <article class="row fw-w jc-se w-100 m-auto mbt-3">
+        <h2 class="btn bdrs-pill bg-dark-blue fs-2 m-auto bolder as-fs pos-relative ta-c">
+            <i class="ep-hearts f-inherit"></i> 
+            Our Customers Reviews
+            <hr class="pos-absolute o-2 w-100vw center epic_to-back mbt-0 f-col"> 
+        </h2>
+
+        <div class="w-100 mbt-3"></div>
+
+        <div class="md_container md_w-80 row fw-w">
+
+            <figure class="card bx-sh-2-col mxw-450 sm_mxw-350 container md_p-4 p-2 mb-3">
+                <p> <span class="bolder fs-1">It</span> is very useful, I was able to receive payments after 30 minutes of Sign up </p>
+                <div class="row mt-5">
+                    <span class="row jc-sb w-50">
+                        <i class="ep-star-fill f-col"></i>
+                        <i class="ep-star-fill f-col"></i>
+                        <i class="ep-star-fill f-col"></i>
+                        <i class="ep-star-fill f-col"></i>
+                        <i class="ep-star-fill f-col"></i>
                     </span>
+                    <i class="f-gray w-50 ta-r">~ Tomi </i>
                 </div>
-            </div>
+            </figure>
 
-            <div class="svg w-100">
-                <?xml version="1.0" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" class="fill-black" viewBox="0 0 1440 320"><path fill="var(--black)" fill-opacity="1" d="M0,64L30,85.3C60,107,120,149,180,144C240,139,300,85,360,96C420,107,480,181,540,192C600,203,660,149,720,144C780,139,840,181,900,176C960,171,1020,117,1080,122.7C1140,128,1200,192,1260,208C1320,224,1380,192,1410,176L1440,160L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"></path></svg>
-            </div>
+            <figure class="card bx-sh-2-col mxw-450 sm_mxw-350 container md_p-4 p-2 mb-3">
+                <p> <span class="bolder fs-1">My</span> Dad abroad now finds it easy to send money to me with the use of a bill payment link. </p>
+                <div class="row mt-5">
+                    <span class="row jc-sb w-50">
+                        <i class="ep-star-fill f-col"></i>
+                        <i class="ep-star-fill f-col"></i>
+                        <i class="ep-star-fill f-col"></i>
+                        <i class="ep-star-fill f-col"></i>
+                        <i class="ep-star f-col"></i>
+                    </span>
+                    <i class="f-gray w-50 ta-r">~ Deborah </i>
+                </div>
+            </figure>
 
-            <script>
-                let toggle = true;
-                function updateBill() {
-                    let da = new Date()
-                    if (toggle) {   
-                        document.getElementById('bill').innerText = ' Design Bill';
-                        document.getElementById('amount').innerText = '300';
-                        document.getElementById('status').innerText = 'Pending';
-                        document.getElementById('date').innerText = da.toDateString();
-                        document.getElementById('name').innerText = '😶 No one';
-                        document.getElementById('bill').classList.replace('ep-lightning-fill', 'ep-shop')
-                        toggle = false;
-                    } else {   
-                        document.getElementById('bill').innerText = ' Freelance Bill';
-                        document.getElementById('amount').innerText = '200';
-                        document.getElementById('status').innerText = 'Paid';
-                        document.getElementById('date').innerText = '2nd, December 2022';
-                        document.getElementById('name').innerText = 'John Doe';
-                        document.getElementById('bill').classList.replace('ep-shop', 'ep-lightning-fill')
-                        toggle = true;
-                    }
-                    document.getElementById('bill-log').classList.toggle('right-in');
-                    document.getElementById('bill-log').classList.toggle('left-in');
-                }
-                setInterval(() => {
-                    updateBill();
-                }, 5000);
-            </script>
-        </article>
+            <figure class="card bx-sh-2-col mxw-450 sm_mxw-350 container md_p-4 p-2 mb-3">
+                <p> <span class="bolder fs-1">No</span> more akward billing conversations, I just share a bill payment link to clients via WhatsApp. </p>
+                <div class="row mt-5">
+                    <span class="row jc-sb w-50">
+                        <i class="ep-star-fill f-col"></i>
+                        <i class="ep-star-fill f-col"></i>
+                        <i class="ep-star-fill f-col"></i>
+                        <i class="ep-star-fill f-col"></i>
+                        <i class="ep-star-fill f-col"></i>
+                    </span>
+                    <i class="f-gray w-50 ta-r">~ Peace </i>
+                </div>
+            </figure>
+
+            <figure class="card bx-sh-2-col mxw-450 sm_mxw-350 container md_p-4 p-2 mb-3">
+                <p> <span class="bolder fs-1">As</span> a youtube <i class="ep-youtube f-red"></i> creator, I use this platform to accept donations from my subscribers and fans. </p>
+                <div class="row mt-5">
+                    <span class="row jc-sb w-50">
+                        <i class="ep-star-fill f-col"></i>
+                        <i class="ep-star-fill f-col"></i>
+                        <i class="ep-star-fill f-col"></i>
+                        <i class="ep-star-fill f-col"></i>
+                        <i class="ep-star f-col"></i>
+                    </span>
+                    <i class="f-gray w-50 ta-r">~ Clinton </i>
+                </div>
+            </figure>
+        </div>
+
+    </article>
+
+    <!-- FAQ Page -->
+    <article class="row fw-w jc-se w-100 m-auto mb-3 mt-6">
+        <h2 class="btn bdrs-pill bg-dark-blue fs-2 m-auto bolder as-fs pos-relative ta-c">
+            <i class="ep-lightbulb f-inherit"></i> 
+            Frequently Asked Questions 
+            <hr class="pos-absolute o-2 w-100vw center epic_to-back mbt-0 f-col"> 
+        </h2>
+
+        <div class="w-100 mbt-2"></div>
+
+        <div class="mxw-600 container col">
+            <details class="btn bg-blue-10 p-3 w-100">
+                <summary class="bold"> What is Billmink? </summary>
+                <p class="p-3"> Billmink is a platform that allows users to easily receive payments from clients by simply sharing a payment link.</p>
+                <hr class="f-blue">
+            </details>
+            <details class="btn bg-blue-10 p-3 w-100">
+                <summary class="bold"> How long does it take to receive payments? </summary>
+                <p class="p-3"> Billmink users are expected to get credited in their bank accounts after 1 working day.</p>
+                <hr class="f-blue">
+            </details>
+            <details class="btn bg-blue-10 p-3 w-100">
+                <summary class="bold" > What payments method does Billmink accepts? </summary>
+                <p class="p-3"> Billmink currently accepts any currency as means of payments but users only collect payments in Naira .</p>
+                <hr class="f-blue">
+            </details>
+            <details class="btn bg-blue-10 p-3 w-100">
+                <summary class="bold"> How do I receive payments using Billmink? </summary>
+                <p class="p-3"> To receive payments simply login to your dashboard and click on the New Bill button, generate a bill payment link, and share it with your client via email, SMS, or social media. Once your client clicks on the payment link, they will be redirected to a secure payment page, where they can enter their payment details and complete the transaction. You will receive the payment directly into your Billmink account, which you can then withdraw or transfer to any bank account.</p>
+                <hr class="f-blue">
+            </details>
+            <details class="btn bg-blue-10 p-3 w-100">
+                <summary class="bold"> Is Billmink secure for receiving payments online? </summary>
+                <p class="p-3"> Billmink is popularly used by Nigerian freelancers, and small business owners to collect payments from clients and customers all over the world. It integrates with Paystack API to handle transactions to give users a secured payment experience .</p>
+                <hr class="f-blue">
+            </details>
+        </div>
+
+    </article>
         
-        
-        <article class="container mt-0 mb-6 row fw-w">
-            <h1 class="fs-1 ep-lock-fill bold ta-c w-100"> What is Billmink? </h1>
-            <article class="container mxw-400 sm_mxw-300 lg_plr-0">
-                <p class="ta-c gap mbt-4 plr-0">
-                    Billmink is a fin-tech company that helps freelancers and small business owners to collect payment from international transactions fast and without them bothering about Currency exchange 🚀. It provides flexibility for users to make payments, it also allows loved ones ❤💕 to help pay bills. It integrates with Paystack for payment transactions ✅. Billmink aims to make it easier for people to pay bills and keep track of their expenses with ease anywhere around the world.
-                </p>
-            </article>
+</section>
 
-
-            <div class="container mxw-350 bdrs-md o-hide p-0 bx-sh">
-                <img src="{% static 'images/billmink_logo.png' %}" alt=".">
-            </div>
-        </article>
-
-        <article class="h-calc mb-4 row jc-sa fw-w container mxw-1000 mb-0">
-            <div class="col bdrs bx-sh-2-col p-4 fs-2 ta-c mxw-450">
-                Sign-Up as a Beta Tester
-                <div class="gap"></div>
-                <a href="{% url 'register_view' %}" class="bdrs-pill btn plr-3 bx-sh-white container mxw-200 fs-6 f-black row jc-sa underline">Sign-Up Now <i class="ep-arrow-right f-black"></i> </a>
-            </div>
-            <div class="svg w-350px">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi ep-eyeglasses" viewBox="0 0 16 16">
-                    <path d="M4 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm2.625.547a3 3 0 0 0-5.584.953H.5a.5.5 0 0 0 0 1h.541A3 3 0 0 0 7 8a1 1 0 0 1 2 0 3 3 0 0 0 5.959.5h.541a.5.5 0 0 0 0-1h-.541a3 3 0 0 0-5.584-.953A1.993 1.993 0 0 0 8 6c-.532 0-1.016.208-1.375.547zM14 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
-                  </svg>
-            </div>
-        </article>
-        
-        {% if formname %}
-            {% include 'core/form.html' %}
-        {% endif %}
-        
-        {% include 'includes/footer.html' %}
-    </section>
+{% include 'includes/footer.html' %}
+    
 {% endblock pages %}

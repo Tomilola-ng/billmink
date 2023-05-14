@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2021 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 3280.84 3280.84"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <font id="FontID0" horiz-adv-x="726" font-variant="normal" style="fill-rule:nonzero" font-style="normal" font-weight="400">
+	<font-face 
+		font-family="Montserrat">
+		<font-face-src>
+			<font-face-name name="Montserrat Regular"/>
+		</font-face-src>
+	</font-face>
+   <missing-glyph><path d="M0 0z"/></missing-glyph>
+   <glyph unicode="e" horiz-adv-x="587" d="M303.001 532.001c81.9983,0 143.998,-24.1654 185.998,-72.5028 42.0004,-48.3307 63.0006,-115.498 63.0006,-201.501 0,-13.3326 -0.336003,-23.3321 -1.00129,-29.9984l-418.002 0c7.33832,-47.3294 27.1692,-84.9954 59.5062,-112.998 32.3303,-28.0025 72.1668,-42.0004 119.496,-42.0004 31.3357,0 60.5008,5.66502 87.502,17.0018 27.0012,11.33 50.5013,27.3305 70.5002,48.0015l50.9986 -53.0012c-25.9999,-28.0025 -57.3356,-49.668 -94.0003,-65.0032 -36.6647,-15.3352 -77.3346,-22.9961 -122.003,-22.9961 -51.9999,0 -98.1668,11.162 -138.494,33.4995 -40.3339,22.3308 -71.6695,53.8278 -94.0003,94.4976 -22.3375,40.6699 -33.4995,86.998 -33.4995,138.998 0,51.9999 11.162,98.1668 33.4995,138.501 22.3308,40.3339 53.4985,71.9988 93.4963,95.0016 39.9978,23.0028 85.6674,34.5008 137.002,34.5008zm164.998 -232.004c-2.66787,48.0015 -18.6684,85.8354 -48.0015,113.502 -29.3331,27.6665 -68.0004,41.5031 -115.995,41.5031 -46.6709,0 -85.4994,-14.0046 -116.499,-42.0004 -31.0064,-28.0025 -49.5,-65.6685 -55.501,-113.005l335.997 0z"/>
+  </font>
+  <style type="text/css">
+   <![CDATA[
+    @font-face { font-family:"Montserrat";font-variant:normal;font-style:normal;font-weight:normal;src:url("#FontID0") format(svg)}
+    .str0 {stroke:white;stroke-width:105.83;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:22.9256}
+    .fil1 {fill:none}
+    .fil0 {fill:#1A1A1A}
+    .fil2 {fill:white}
+    .fnt0 {font-weight:normal;font-size:1488.08px;font-family:'Montserrat'}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_2615966187152">
+   <g>
+    <rect class="fil0" x="52.92" y="52.92" width="3174.99" height="3174.99" rx="122.6" ry="117.43"/>
+    <rect class="fil1 str0" x="822.15" y="52.92" width="1636.55" height="3175"/>
+    <rect class="fil1 str0" transform="matrix(2.63148E-14 0.98522 -0.98522 2.63148E-14 3227.92 822.141)" width="1661.1" height="3222.63"/>
+   </g>
+   <circle class="fil2" cx="1640.42" cy="1640.42" r="618.08"/>
+   <polygon class="fil2" points="392.77,2660.06 510.55,2864.06 628.32,3068.05 392.77,3068.05 157.22,3068.05 274.99,2864.06 "/>
+   <polygon class="fil2" points="2881.5,129.49 3010.84,223.46 3140.17,317.43 3090.77,469.48 3041.37,621.52 2881.5,621.52 2721.62,621.52 2672.22,469.48 2622.82,317.43 2752.16,223.46 "/>
+   <text x="1184.23" y="2025.97"  class="fil0 fnt0">e</text>
+   <polygon class="fil2" points="392.76,129.49 528.76,265.48 664.75,401.48 528.76,537.47 392.76,673.47 256.77,537.47 120.77,401.48 256.77,265.48 "/>
+   <polygon class="fil2" points="2881.5,2609.01 2999.28,2677.01 3117.05,2745.01 3117.05,2881 3117.05,3017 2999.28,3085 2881.5,3152.99 2763.73,3085 2645.95,3017 2645.95,2881 2645.95,2745.01 2763.73,2677.01 "/>
+  </g>
+ </g>
+</svg>

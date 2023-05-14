@@ -3,6 +3,19 @@
     src: url(./font/font.ttf);
 }
 
+@font-face {
+    font-family: fontsBolder;
+    src: url(./font/font-bold.ttf);
+    font-weight: bolder;
+}
+
+@font-face {
+    font-family: fontsBold;
+    src: url(./font/font-SemiBold.ttf);
+    font-weight: bold;
+}
+
 * {
     font-family: fonts;
 }
+

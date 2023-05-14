@@ -1,0 +1,21 @@
+@font-face {
+    font-family: fonts;
+    src: url("./font/font.d709511cfc58.ttf");
+}
+
+@font-face {
+    font-family: fontsBolder;
+    src: url("./font/font-bold.12413cac332a.ttf");
+    font-weight: bolder;
+}
+
+@font-face {
+    font-family: fontsBold;
+    src: url("./font/font-SemiBold.4ca619e8c7c5.ttf");
+    font-weight: bold;
+}
+
+* {
+    font-family: fonts;
+}
+

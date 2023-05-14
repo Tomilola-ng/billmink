@@ -50,6 +50,7 @@ color: var(--col) !important;
 .f-green { color: var(--green) !important}
 .f-red { color: var(--red) !important}
 .f-blue { color: var(--blue) !important}
+.f-dark-blue { color: var(--dark-blue) !important}
 .f-grey { color: var(--grey) !important}
 .f-gray { color: var(--gray) !important}
 .f-orange { color: var(--orange) !important}
@@ -66,6 +67,7 @@ color: var(--col) !important;
 .fill-green { fill: var(--green) !important}
 .fill-red { fill: var(--red) !important}
 .fill-blue { fill: var(--blue) !important}
+.fill-dark-blue { fill: var(--dark-blue) !important}
 .fill-grey { fill: var(--grey) !important}
 .fill-gray { fill: var(--gray) !important}
 .fill-orange { fill: var(--orange) !important}
@@ -82,6 +84,7 @@ color: var(--col) !important;
 .bg-green { background-color: var(--green) !important}
 .bg-red { background-color: var(--red) !important}
 .bg-blue { background-color: var(--blue) !important}
+.bg-dark-blue { background-color: var(--dark-blue) !important}
 .bg-grey { background-color: var(--grey) !important}
 .bg-gray { background-color: var(--gray) !important}
 .bg-orange { background-color: var(--orange) !important}
@@ -106,6 +109,7 @@ color: var(--col) !important;
 .hover_f-green:hover { color: var(--green) !important}
 .hover_f-red:hover { color: var(--red) !important}
 .hover_f-blue:hover { color: var(--blue) !important}
+.hover_f-dark-blue:hover { color: var(--dark-blue) !important}
 .hover_f-grey:hover { color: var(--grey) !important}
 .hover_f-gray:hover { color: var(--gray) !important}
 .hover_f-orange:hover { color: var(--orange) !important}
@@ -122,6 +126,7 @@ color: var(--col) !important;
 .hover_fill-green:hover { fill: var(--green) !important}
 .hover_fill-red:hover { fill: var(--red) !important}
 .hover_fill-blue:hover { fill: var(--blue) !important}
+.hover_fill-dark-blue:hover { fill: var(--dark-blue) !important}
 .hover_fill-grey:hover { fill: var(--grey) !important}
 .hover_fill-gray:hover { fill: var(--gray) !important}
 .hover_fill-orange:hover { fill: var(--orange) !important}
@@ -138,6 +143,7 @@ color: var(--col) !important;
 .hover_bg-green:hover { background-color: var(--green) !important}
 .hover_bg-red:hover { background-color: var(--red) !important}
 .hover_bg-blue:hover { background-color: var(--blue) !important}
+.hover_bg-dark-blue:hover { background-color: var(--dark-blue) !important}
 .hover_bg-grey:hover { background-color: var(--grey) !important}
 .hover_bg-gray:hover { background-color: var(--gray) !important}
 .hover_bg-orange:hover { background-color: var(--orange) !important}
@@ -207,6 +213,7 @@ color: var(--col) !important;
     .md_f-green { color: var(--green) !important}
     .md_f-red { color: var(--red) !important}
     .md_f-blue { color: var(--blue) !important}
+    .md_f-dark-blue { color: var(--dark-blue) !important}
     .md_f-grey { color: var(--grey) !important}
     .md_f-gray { color: var(--gray) !important}
     .md_f-orange { color: var(--orange) !important}
@@ -226,6 +233,7 @@ color: var(--col) !important;
     .md_bg-green { background-color: var(--green) !important}
     .md_bg-red { background-color: var(--red) !important}
     .md_bg-blue { background-color: var(--blue) !important}
+    .md_bg-dark-blue { background-color: var(--dark-blue) !important}
     .md_bg-grey { background-color: var(--grey) !important}
     .md_bg-gray { background-color: var(--gray) !important}
     .md_bg-orange { background-color: var(--orange) !important}
@@ -243,6 +251,7 @@ color: var(--col) !important;
     .lg_f-green { color: var(--green) !important}
     .lg_f-red { color: var(--red) !important}
     .lg_f-blue { color: var(--blue) !important}
+    .lg_f-dark-blue { color: var(--dark-blue) !important}
     .lg_f-grey { color: var(--grey) !important}
     .lg_f-gray { color: var(--gray) !important}
     .lg_f-orange { color: var(--orange) !important}
@@ -262,6 +271,7 @@ color: var(--col) !important;
     .lg_bg-green { background-color: var(--green) !important}
     .lg_bg-red { background-color: var(--red) !important}
     .lg_bg-blue { background-color: var(--blue) !important}
+    .lg_bg-dark-blue { background-color: var(--dark-blue) !important}
     .lg_bg-grey { background-color: var(--grey) !important}
     .lg_bg-gray { background-color: var(--gray) !important}
     .lg_bg-orange { background-color: var(--orange) !important}

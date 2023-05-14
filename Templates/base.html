@@ -9,43 +9,46 @@
     
     {% include 'includes/style.html' %}
 
-    <link rel="shortcut icon" href='{% static "images/billmink_logo.png" %}' type="image/x-icon">
-    
+    <link rel="shortcut icon" href='{% static "./images/bilmink-logo.png" %}' type="image/x-icon">
 </head>
 
-<body class="dark-mode" id="body">
+<body class="dark-mode bg-dark-blue pos-relative" id="body">
+    <article style="background-image: radial-gradient(var(--gray) 1.25px, transparent 1.25px), radial-gradient(var(--gray) 1.25px, var(--dark-blue) 1.25px); background-size: 50px 50px; background-position: 0 0 , 25px 25px;" class="pos-absolute w-100 h-100 o-1 epic_to-back"></article>
 
-  <main id="app">
-      <!-- Header -->
-      <header class="epic_header epic_f-inherit sm_w-100 h-calc md_mbt-2">
-          <a href="{% url 'index_view' %}" class="epic_logo fs-3 sm_fs-5 zi-100 row">
-                <div style="height: 40px !important; width: 40px !important;" class="bg-col f-black bdrs-circle bd-2 col sm_fs-1">b</div>
-                billmink
-          </a>
-          <nav class="epic_nav mxw-350 zi-100 sm_mh-100vh sm_w-100">
-              {% if user.is_authenticated %}
-                <a href="{% url 'logout' %}" class="bio_link zi-100 md_o-8"> Logout </a>
-              {% else %}
-                <a href="{% url 'login_view' %}" class="bio_link zi-100"> LOGIN </a>
-              {% endif %}
-              <a href="{% url 'agreement_view' %}" class="bio_link zi-100"> Agreements </a>
-              <a href="{% url 'about_view' %}" class="bio_link zi-100"> About Us </a>
-              <div class="epic_close-nav hover_secondary-alt zi-100">Close</div>
-          </nav>
-          
-          <div class="row zi-100">
-              <div class="epic_menu-btn hover_fill-col">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="menu-icon fill-white" width="25" height="30" viewBox="0 0 16 16">
-                      <path d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                  </svg> 
-              </div>
-  
-              <div class="">
-                  <a href="{% url 'billCreate_view' %}" class="btn secondary lg_plr-3"> New Bill </a>
-              </div>
-          </div> 
-      </header>
+    <!-- Header -->
+    <header class="epic_header epic_f-inherit sm_w-100 h-calc md_mbt-2 mt-3">
+        <a href="{% url 'index_view' %}" class="epic_logo fs-3 sm_fs-5 zi-100 row">
+            <img src='{% static "./bilmink-text-logo.svg" %}'' alt="." height="24px" class="md_h-30px">
+        </a>
+        <nav aria-label="." class="epic_nav mxw-450 zi-100 sm_mh-100vh sm_w-100">
+            <a href="{% url 'agreement_view' %}" class="bio_link zi-100"> <i class="ep-book"></i> Agreements </a>
+            <a href="{% url 'about_view' %}" class="bio_link zi-100"> <i class="ep-people"></i> About Us </a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="bio_link zi-100 md_o-8"> <i class="ep-lock"></i> Logout </a>
+            {% else %}
+            <a class="bio_link zi-100 md_f-gray"> <i class="ep-people-heart"></i> 1k+ Users </a>
+            {% endif %}
+            <div class="epic_close-nav hover_secondary-alt zi-100">Close</div>
+        </nav>
+        
+        <div class="row zi-100">
+            <div class="epic_menu-btn hover_fill-col">
+                <svg xmlns="http://www.w3.org/2000/svg" class="menu-icon fill-white" width="25" height="30" viewBox="0 0 16 16">
+                    <path d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg> 
+            </div>
 
-      {% block pages %}{% endblock pages %}
+            <div class="">
+            {% if user.is_authenticated %}
+                <a href="{% url 'billCreate_view' %}" class="btn secondary lg_plr-3"> New Bill </a>
+            {% else %}
+                <a href="{% url 'login_view' %}" class="btn secondary lg_plr-3"> Login </a>
+            {% endif %}
+
+            </div>
+        </div> 
+    </header>
+
+    {% block pages %}{% endblock pages %}
 </body>
 </html>

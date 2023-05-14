@@ -3,11 +3,6 @@
 <title>About Us | Billmink</title>
 {% block pages %}
     <style>
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 50px 20px;
-        }
         h1 {
             font-size: 36px;
             font-weight: bold;
@@ -57,7 +52,7 @@
     </style>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container mxw-950">
         <h1>About Us</h1>
 
         <div class="section">
@@ -135,5 +130,8 @@
                 </li>
             </ul>
         </div>
+    </div>
 
-        {% endblock %}
+    {% include 'includes/footer.html' %}        
+
+    {% endblock %}

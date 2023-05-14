@@ -10,9 +10,10 @@
 
 :root {
   /* colors */
-  --col: #0d6efd;
-  --white: #fff;
+  --col: #12d18e;
+  --white: #ffffff;
   --black: #222222;
+  --dark-blue: #02021b;
   --green: #07c938;
   --red: #dc0606;
   --blue: #0d6efd;

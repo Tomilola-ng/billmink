@@ -67,19 +67,6 @@
   text-decoration: underline !important
 }
 
-.bold {   letter-spacing: 1.1px; font-weight: bold !important}
-.bolder {   letter-spacing: 1.1px; font-weight: bolder !important}
-
-.overline { text-decoration: overline !important}
-.underline { text-decoration: underline !important}
-.line-through { text-decoration: line-through !important}
-.strike-through { text-decoration: line-through !important}
-
-.underline-col { 
-    text-decoration: underline !important; 
-    text-decoration-color: var(--col) !important;
-}
-
 
 /* Display  */
  
@@ -144,8 +131,11 @@
 .tt-u { text-transform: uppercase !important}
 .tt-c { text-transform: capitalize !important}
 
-.fw-b {   letter-spacing: 1.1px; font-weight: bold !important}
-.fw-br {   letter-spacing: 1.1px; font-weight: bolder !important}
+.bold {   letter-spacing: 1.1px; font-family: fontsBold; font-weight: bold !important}
+.bolder {   letter-spacing: 1.1px; font-family: fontsBolder; font-weight: bolder !important}
+
+.fw-b {   letter-spacing: 1.1px; font-family: fontsBold; font-weight: bold !important}
+.fw-br {   letter-spacing: 1.1px; font-family: fontsBolder; font-weight: bolder !important}
 
 .td-u { text-decoration: underline !important }
 .td-w { text-decoration: wavy !important }
@@ -156,6 +146,17 @@
 .td-w-col { text-decoration-color: var(--col); text-decoration: wavy !important }
 .td-lt-col  { text-decoration-color: var(--col); text-decoration: line-through !important }
 .td-o-col { text-decoration-color: var(--col); text-decoration: overline !important }
+
+.overline { text-decoration: overline !important}
+.underline { text-decoration: underline !important}
+.line-through { text-decoration: line-through !important}
+.strike-through { text-decoration: line-through !important}
+
+.underline-col { 
+    text-decoration: underline !important; 
+    text-decoration-color: var(--col) !important;
+}
+
 
 .tsh { text-shadow: 1px 1px 0 var(--black); }
 

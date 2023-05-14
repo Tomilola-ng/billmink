@@ -54,7 +54,7 @@ class Bill(models.Model):
         if self.paid:
             return 'Paid' 
         else:
-            return 'Pending'
+            return 'Pending' 
 
     def link(self):
         return f'http://{settings.DOMAIN_PATH}/bill/{self.id}/payment/' 

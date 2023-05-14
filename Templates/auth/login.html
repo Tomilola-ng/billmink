@@ -1,13 +1,10 @@
 {% extends 'base.html' %}
 
 {% block pages %}
-<section id="login" class="mt-3 row jc-sb fw-w m-auto">
-    {% include 'includes/bg.html' %}
-    
-    <article class="overlay zi-2 col pos-fixed">
-        <form method="post" class="md_mxw-400 right-in container plr-2">
+    <section id="login" class="mh-80vh col m-auto">
+        <form method="post" class="mxw-400 container">
             {% csrf_token %}
-            <b class="fs-3 f-col"> Welcome Back </b>
+            <b class="fs-1 f-col bolder"> Welcome Back </b>
             {% if form.errors %}
                 <br>
                 {% for field_errors in form.errors.values %}
@@ -19,7 +16,8 @@
                 {% endfor %}
                 {% endfor %}
             {% endif %}
-            <hr class="w-90 mb-4">
+
+            <hr class="f-col o-2 mt-0 mb-4">
 
             <p>
                 <label for="id_username">Phone Number:</label>
@@ -31,12 +29,10 @@
                 <input type="password" name="password" autocomplete="current-password" required id="id_password">
             </p>
 
-            <div class="row jc-sb w-90 mt-4">
+            <div class="row jc-sb mt-4">
                 <button type="submit" class="btn secondary fs-6 plr-3">Submit</button>
-                <a href="{% url 'register_view' %}" class="f-col fs-7">New Account</a>
+                <a href="{% url 'register_view' %}" class="f-col bold">New Account</a>
             </div>  
         </form>
-    </article>
-
-</section>
+    </section>
 {% endblock pages %}

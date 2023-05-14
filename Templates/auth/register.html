@@ -1,38 +1,50 @@
 {% extends 'base.html' %}
 
 {% block pages %}
-<section id="register" class="mt-3 row jc-sb fw-w m-auto oy-scroll">
-    {% include 'includes/bg.html' %}
-    
-    <article class="overlay col pos-fixed oy-scroll mh-600 zi-100"></article>
-
-    <div id='registerForm' class="zi-100 m-auto">
-        <form method="post" class="mxw-400 container plr-4">
+<section id="register" class="mh-80vh col m-auto">
+        <form method="post" class="mxw-400 container">
             {% csrf_token %}
-            <b class="fs-3 f-col"> Create Account </b>
+            <b class="fs-1 f-col bolder"> Create Account </b>
             
             {% if form.errors %}
                 <br>
                 {% for field_errors in form.errors.values %}
                 {% for error in field_errors %}
-                    <div class="btn bg-white w-90 p-2 fs-7 f-red">
+                    <div class="btn bg-white p-2 fs-7 f-red">
                         • {{ error }} 
                         <br>
                     </div>
                 {% endfor %}
                 {% endfor %}
             {% endif %}
-            <hr class="w-90 mbt-2">
-            
-            {{ form.as_p }}
-            {{ form_2.as_p }}
 
-            <div class="row jc-sb w-90">
+            <hr class="f-col o-2 mt-0 mb-4">
+             
+            <p>
+                <label for="id_fullname">Full name:</label>
+                <input type="text" name="fullname" placeholder="e.g John Folade" required id="id_fullname">
+            </p>
+
+            <p>
+                <label for="id_phone">Phone Number:</label>
+                <input type="text" name="phone" placeholder="Use numbers and symbols" maxlength="12" autofocus required id="id_phone">    
+            </p>
+            
+            <p>
+                <label for="id_password1">Password:</label>
+                <input type="password" name="password1" autocomplete="new-password" required id="id_password1">    
+            </p>
+              
+            <p>
+                <label for="id_password2">Confirm password :</label>
+                <input type="password" name="password2" autocomplete="new-password" required id="id_password2">
+            </p>
+            
+            <div class="row jc-sb mt-2">
                 <button type="submit" class="btn secondary fs-6 plr-3"> Submit </button>
-                <a href="{% url 'login_view' %}" class="f-col fs-7">Login Here</a>
+                <a href="{% url 'login_view' %}" class="f-col fs-7 bold">Login Here</a>
             </div>  
         </form>
-    </div>
 
 </section>
 {% endblock %}
