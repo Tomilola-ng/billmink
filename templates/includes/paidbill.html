@@ -1,0 +1,37 @@
+{% load static %}
+
+<div style="animation-duration: 1.5s;" class="bx-sh-col bdrs mb-3 lg_w-80 m-auto">
+    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="30.64mm" height="11mm" class="w-100 h-5" style="pointer-events: auto;" version="1.1" viewBox="0 0 4064 956.64" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+    <defs>  
+
+    <style type="text/css">
+    
+        @font-face { font-family:"Source Sans Pro Black";font-variant:normal;font-style:normal;font-weight:900;src:url("#FontID1") format(svg)}
+        @font-face { font-family:"Source Sans Pro Semibold";font-variant:normal;font-style:normal;font-weight:600;src:url("#FontID0") format(svg)}
+        .str0 {stroke:#12D18E;stroke-width:33.87;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:22.9256}
+        .fil0 {fill:none}
+        .fil4 {fill:#12D18E}
+        .fil3 {fill:#666666}
+        .fil2 {fill:#666666}
+        .fil1 {fill:white}
+        .fil5 {fill:white;fill-rule:nonzero}
+        .fnt2 {font-weight:600; font-size:200px;font-family:'Source Sans Pro Semibold'}
+        .fnt3 {font-weight:600;font-size:325.2px;font-family:'Source Sans Pro Semibold'}
+        .fnt1 {font-weight:900;font-size:423.33px;font-family:'Source Sans Pro Black'}
+    
+    </style>
+    </defs>
+    <g id="Layer_x0020_1">
+    <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+    <text x="249.41" y="83.7" class="fil4  fnt2">Paid</text>
+    <text x="254" y="471.15" class="fil1 fnt1">₦ </text>
+    <text x="482.6" y="471.15" id="bill_value" class="fil1 fnt1">{{ bill.amount }} </text>
+
+    <rect onclick="toggleModal('{{ bill.id }}')" class="fil2" x="254" y="700" width="3556" height="403.77" rx="74.41" ry="59.6"></rect>
+
+    <g id="_2234452382976" >
+    <text x="2032" y="922" class="fil1 fnt3" text-anchor="middle" alignment-baseline="middle" onclick="toggleModal('{{ bill.id }}')"> View Details </text>
+    </g>
+    </g>
+    </svg>
+</div>

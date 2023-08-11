@@ -1,0 +1,67 @@
+   
+        <aside id="{{ bill.id }}" class="pos-fixed w-100 h-100 top-left col dp-none">
+            <div class="pos-absolute w-100 h-100 bg-dark-blue o-8 zi-100 epic_to-back"></div>
+            <div class="container w-90 mxw-500 mh-60vh zi-100 bg-white bdrs row fw-w f-black epic_f-inherit">
+                
+                <div class="row jc-sb container mxw-400">
+                    <p class="f-black"> 
+                        <i class="ep-pin-fill f-col"></i>
+                        <span class="bolder fs-5 f-black" id="bill_type"> {{ bill.bill_type }} </span>
+                    </p>
+                    <p class="bolder"> 
+                        <span onclick="toggleModal('{{ bill.id }}')" class="f-red fs-5 toggle-modal ep-x-circle"></span>
+                    </p>
+                </div>
+                
+                <hr class="f-gray mxw-400">
+
+                <div class="row jc-sb container mxw-400">
+                    <p class="f-black"> 
+                        <i class="ep-cash f-col"></i>
+                        Total Amount
+                    </p>
+                    <p class="bolder"> 
+                        <span class="f-black" id="bill_currency"> {{ bill.symbol }} </span> 
+                        <span class="f-black" id="bill_amount"> {{ bill.amount }} </span>
+                    </p>
+                </div>
+
+                <div class="row jc-sb container mxw-400">
+                    <p class="f-black"> 
+                        <i class="ep-chat-fill f-col"></i>
+                        Bill Status 
+                    </p>
+                    <p class="bolder"> 
+                        <span id="bill_status" class="f-black"> {{ bill.status }} </span>
+                    </p>
+                </div>
+
+                <div class="row jc-sb container mxw-400">
+                    <p class="f-black"> 
+                        <i class="ep-calendar-fill f-col"></i>
+                        <span class="f-black">Creation Date</span>
+                    </p>
+                    <p class="bolder"> 
+                        <span class="f-black" id="bill_date"> {{ bill.date | date:'M d, o'}}  </span>
+                    </p>
+                </div>
+
+                <div class="row jc-sb container mxw-400">
+                    <p class="fs-7"> 
+                        <i class="ep-envelope-fill f-col"></i>
+                        <span class="f-black"> Payment email </span>
+                    </p>
+                    <p class="fs-7"> 
+                        <span class="f-black" id="bill_paid_by"> {{ bill.paid_by }} </span>
+                    </p>
+                </div>
+
+                <div class="row jc-sb container mxw-400">
+                    {% if not bill.paid %} 
+                    <a href="{% url 'bill_update_view' bill.id %}" class="btn primary w-100 ta-c mr-2"> Edit Bill </a>
+                    {% endif %}
+                    <a href="{% url 'bill_delete_view' bill.id %}" class="btn error w-100 ta-c"> Delete Bill </a>
+                </div>
+
+            </div>
+        </aside>

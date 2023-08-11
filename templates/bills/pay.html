@@ -2,13 +2,7 @@
 
 {% block pages %}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <section class="mt-3 row jc-sb fw-w m-auto">
-        <article class="row fw-w w-100 jc-sb h-80vh pos-relative">
-            {% include 'includes/bg.html' %}
-        </article>
-        
-        <section class="overlay zi-2 col pos-fixed">
+    <section class="mh-80vh col m-auto">
           {% if bill.paid %}
           <main class="mxw-400 container plr-4">
             <b class="fs-2 f-col"> The {{ bill }} has been PAID </b>
@@ -21,9 +15,10 @@
               <a href="{% url 'register_view' %}" class="f-col fs-7 o-6">Sign-Up</a>
               <a href="{% url 'agreement_view' %}" class="f-col fs-7 o-6">T's and C's</a>
           </div>
+        </main>
           {% else %}
           
-            <main class="mxw-400 container plr-4">
+            <main class="mxw-500 container w-95 lg_plr-4">
                 <style>
                     form * {
                         letter-spacing: 1.1px;
@@ -42,7 +37,7 @@
                 <button id="payBtn" class="btn primary mt-3 w-120px dp-none"  onclick="payWithPaystack()">Pay💴</button>
 
                 <div class="row jc-sb w-90 mt-5">
-                    <a href="{% url 'register_view' %}" class="f-col fs-7 bold"> Create your bill now » </a>
+                    <a href="{% url 'bill_create_view' %}" class="f-col fs-7 bold"> Create your bill now » </a>
                     <a href="{% url 'agreement_view' %}" class="f-col fs-7">T's and C's</a>
                
                 </div>

@@ -1,21 +1,16 @@
 {% extends 'base.html' %}
 
 {% block pages %}
-    <section class="mt-3 row jc-sb fw-w">
-        {% include 'includes/bg.html' %}
-        
-        <article class="overlay zi-2 col pos-fixed">
-            <main action="" method="post" class="mxw-400 container plr-4">
-                <b class="fs-2 f-col"> Hey There, </b>
-                <hr class="w-90 mt-3 mb-5">
-                <p>
-                    Your withdrawal request has been received and will be processed on the next working day, Thank you for your patience.
-                </p>
-                <div class="row jc-sb w-90 mt-5">
-                    <a class="f-col fs-7 o-6">Customer Mail : 'billminkhq@gmail.com' </a>
-                </div>
-            </main>
-        </article>
-
-    </section>
+<section id="Wait" class="mt-3 row jc-sb fw-w mh-60vh">
+    <main class="mxw-600 container w-90 plr-4 pbt-3">
+        <b class="fs-2 f-col bolder"> Hey There, </b>
+        <hr class="w-90 mt-3 mb-5">
+        <p>
+            Your withdrawal request has been received and will be processed on the next working day, Thank you for your patience.
+        </p>
+        <div class="row jc-sb w-90 mt-5">
+            <a class="f-light">Mail Us : 'billminkhq@gmail.com' </a>
+        </div>
+    </main>
+</section>
 {% endblock pages %}

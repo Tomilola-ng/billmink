@@ -1,16 +1,38 @@
 {% load static %}
 
-<footer class="bg-blue-10 container mt-3 mb-0 row fw-w fs-5">
-    <div class="mlr-2 p-4 sm_w-100 sm_p-1"></div>
-    <a href="{% url 'billCreate_view' %}" class="ep-cash-coin"> New Bill </a>
-    <div class="mlr-2 p-4 sm_w-100 sm_p-1"></div>
-    <a href="{% url 'login_view' %}" class="ep-person">Login | Sign-Up </a>
-    <div class="mlr-2 p-4 sm_w-100 sm_p-1"></div>
-    <a href="{% url 'agreement_view' %}" class="ep-people"> Agreements </a>
-    <div class="mlr-2 p-4 sm_w-100 sm_dp-none"></div>
-    <br>
-    <div class="gap"></div>
-    <a href="https://www.linkedin.com/company/billmink/" class="ep-linkedin btn secondary"> Linked In</a>
+<footer class="w-100 mt-3 mb-0 row fw-w pos-relative sm_plr-2">
+    <div class="pos-absolute w-100 h-100 top-left bg-blue-10 o-8 epic_to-back"></div>
+
+    <div class="container mxw-400">
+        <p class="fs-4 bold f-col"> About Us </p>
+        <p class="fs-6 pl-1">At Billmink, our mission is to provide a simple, secure, and reliable platform for freelancers and small businesses to receive payments from clients all over the world. We understand the struggles that freelancers face when it comes to getting paid by international clients, and we're here to help simplify the process and provide peace of mind.</p>
+    </div>
+
+    <div class="container md_mxw-300 as-fs">
+        <p class="fs-4 bold f-col"> Quick Links </p>
+        <p class="pl-4">
+            <a href="{% url 'bill_create_view' %}" class="fs-5 ep-cash-coin"> New Bill </a>
+            <br>
+            <br>
+            <a href="{% url 'login_view' %}" class="fs-5 ep-person">Login | Sign-Up </a>
+            <br>
+            <br>
+            <a href="{% url 'agreement_view' %}" class="fs-5 ep-people"> Agreements </a>
+            <br>
+            <br>
+            <a href="{% url 'about_view' %}" class="fs-5 ep-people"> About </a>
+        </p>
+    </div>
+
+    <div class="container md_mxw-300 as-fs">
+        <p class="fs-4 bold f-col"> Contact Us </p>
+        <p class="pl-4">
+            <a href="https://www.linkedin.com/company/billmink/" class="fs-5 ep-linkedin"> Linked In </a>
+            <br>
+            <br>
+            <a href="{% url 'login_view' %}" class="fs-5 ep-person"> billminkhq@gmail.com </a>
+        </p>
+    </div>
     <div class="gap"></div>
     <p class="fs-6">&copy; 2023 Billmink. All rights reserved.</p>
 </footer>

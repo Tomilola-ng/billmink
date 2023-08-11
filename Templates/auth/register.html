@@ -6,16 +6,11 @@
             {% csrf_token %}
             <b class="fs-1 f-col bolder"> Create Account </b>
             
-            {% if form.errors %}
-                <br>
-                {% for field_errors in form.errors.values %}
-                {% for error in field_errors %}
-                    <div class="btn bg-white p-2 fs-7 f-red">
-                        • {{ error }} 
-                        <br>
-                    </div>
-                {% endfor %}
-                {% endfor %}
+            {% if error %}
+                <div class="btn bg-white p-2 fs-7 f-red">
+                    • {{ error }} 
+                    <br>
+                </div>
             {% endif %}
 
             <hr class="f-col o-2 mt-0 mb-4">
@@ -27,17 +22,17 @@
 
             <p>
                 <label for="id_phone">Phone Number:</label>
-                <input type="text" name="phone" placeholder="Use numbers and symbols" maxlength="12" autofocus required id="id_phone">    
+                <input type="text" name="phone" maxlength="12" required id="id_phone">    
             </p>
             
             <p>
                 <label for="id_password1">Password:</label>
-                <input type="password" name="password1" autocomplete="new-password" required id="id_password1">    
+                <input type="password" name="password1" placeholder="Use numbers and symbols" required id="id_password1">    
             </p>
               
             <p>
                 <label for="id_password2">Confirm password :</label>
-                <input type="password" name="password2" autocomplete="new-password" required id="id_password2">
+                <input type="password" name="password2" required id="id_password2">
             </p>
             
             <div class="row jc-sb mt-2">

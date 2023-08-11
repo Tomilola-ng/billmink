@@ -4,14 +4,20 @@
     <section id="acc" class="mt-3 row jc-sb fw-w pos-relative mh-60vh">
         <main class="mxw-700 container bdrs row fw-w jc-sb p-0 plr-3 as-fs">
             {% if obj %}
-            <h1> Transaction History </h1>
-            <hr>
+            <p class="bold fs-3"> Transaction History </p>
+
+            <div class="card container">
+
                 {% for acc in obj %}
-                    <div class="bdrs bd-2-col container m-auto  mxw-300 fs-7 row jc-sb">
-                       <span> {{ acc }} </span>
-                       <span>| {{ acc.date }} </span>
-                    </div>
+                <div class="w-100 m-auto row fw-w jc-sb ai-fs bg-white card mb-3 p-2">
+                    <span class="w-100 mxw-300 f-dark-blue" > <i class="ep-pin-fill f-col"></i> {{ acc }} </span>
+                    <hr class="md_dp-none f-col o-2">
+                    <span class="w-100 mxw-200 f-dark-blue" > <i class="ep-calendar-fill f-col"></i> Date :  {{ acc.date }} </span>
+                </div>
                 {% endfor %}
+                
+            </div>
+            
             {% else %}
                 <div class="bdrs bd-2-col container m-auto mxw-400 col pt-4">
                     <div class="svg">

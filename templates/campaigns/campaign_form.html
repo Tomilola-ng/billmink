@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block pages %}
+<section id="bill" class="mh-80vh col m-auto">
+        <form method="post" class="mxw-400 container w-90">
+                {% csrf_token %}
+                <p class="fs-3 f-col bolder mb-3"> {{ formname }} </p>
+                
+                {{ form.as_p }}
+
+                <div class="row jc-sb mt-2">
+                    <button type="submit" class="btn secondary fs-6 plr-3">Submit</button>
+                </div>  
+        </form>
+</section>
+{% endblock pages %}

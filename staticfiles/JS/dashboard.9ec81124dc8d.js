@@ -1,11 +1,7 @@
-
-<script>
-let copyBtn = document.querySelectorAll('.copy-btn');
 let shareBtn = document.querySelectorAll('.share-btn');
 let draft = document.querySelector('#draft');
 let settingBtn = document.querySelectorAll('.setting-btn');
 
-copyBtn.forEach(r => r.addEventListener('click', copyLink));
 shareBtn.forEach(r => r.addEventListener('click', shareLink));
 settingBtn.forEach(r => r.addEventListener('click', toggleSettingRack));
 
@@ -21,15 +17,8 @@ function toggleSettingRack(e) {
     }
 }
 
-function copyLink(e) {
-    let r = e.target;
-    navigator.clipboard.writeText(r.id);
-    alert('Bill link copied');
-}
 
-function shareLink(e) {
-    let r = e.target;
-    let li_nk = r.id;
+function shareLink(li_nk) {
 
     if (navigator.share) {
         navigator.share({
@@ -56,4 +45,6 @@ function compac(params) {
     params.innerText = formatter.format(n)
 }
 
-</script>
+function toggleModal() {
+    alert(' Something ')
+}

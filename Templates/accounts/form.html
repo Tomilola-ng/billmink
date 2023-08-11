@@ -1,10 +1,7 @@
 {% extends 'base.html' %}
 
-{% block pages %}
-<section id="profile_update" class="mt-3 row jc-sb fw-w m-auto">
-    {% include 'includes/bg.html' %}
-    
-    <article class="overlay zi-2 col pos-fixed">
+{% block pages %}    
+<section id="profile_update" class="mh-80vh col m-auto">
         <form method="post" enctype="multipart/form-data" class="mxw-400 right-in container plr-4">
                 {% csrf_token %}
                 <b class="fs-3 f-col"> {{ formname }} </b>
@@ -16,7 +13,5 @@
                     <button type="submit" class="btn secondary fs-6 plr-3">Submit</button>
                 </div>  
         </form>
-    </article>
-
 </section>
 {% endblock pages %}

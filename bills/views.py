@@ -6,23 +6,12 @@ from .utils import deposited_amount
 from django.contrib import messages
 from django.utils.timezone import now
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import UpdateView, CreateView, DeleteView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
-
-def activity(request):
-    obj = reversed(Activity.objects.filter(profile = request.user.profile))
-    
-    context = {
-        'obj': obj,
-    }
-
-    return render(request, 'accounts/activity.html', context)
-
-class billCreate(LoginRequiredMixin , CreateView):
+class bill_create(LoginRequiredMixin , CreateView):
     model = Bill
     fields = ['amount', 'bill_type', 'currency']
 
@@ -45,7 +34,7 @@ class billCreate(LoginRequiredMixin , CreateView):
         return reverse('index_view')
 
 
-class billUpdate(LoginRequiredMixin, UserPassesTestMixin , UpdateView):
+class bill_update(LoginRequiredMixin, UserPassesTestMixin , UpdateView):
     model = Bill
     fields = ['bill_type', 'amount']
 
@@ -74,7 +63,7 @@ class billUpdate(LoginRequiredMixin, UserPassesTestMixin , UpdateView):
         return context 
         
 
-class billDelete(LoginRequiredMixin, UserPassesTestMixin ,DeleteView):
+class bill_delete(LoginRequiredMixin, UserPassesTestMixin ,DeleteView):
 
     model = Bill
     template_name = 'bills/confirm.html'
@@ -101,7 +90,7 @@ class billDelete(LoginRequiredMixin, UserPassesTestMixin ,DeleteView):
 
 
 
-#  Involves Bill pAying
+#  Involves Bill paying
 def bill_pay(request, id):
     bill = get_object_or_404(Bill, id = id)
 
@@ -109,7 +98,7 @@ def bill_pay(request, id):
         'bill': bill,
         'public_key': settings.PAYSTACK_PUBLIC_KEY,
     }
-    return render(request, 'bills/payment.html', context)
+    return render(request, 'bills/pay.html', context)
 
 
 @csrf_exempt

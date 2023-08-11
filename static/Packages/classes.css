@@ -92,6 +92,14 @@
 .bottom-left { bottom: 0 !important; left: 0 !important;}
 .bottom-right { bottom: 0 !important; right: 0 !important;}
 
+.left-center {
+  left: 0 !important; top: 50%; transform: translateY(-50%);
+}
+
+.right-center {
+  right: 0 !important; top: 50%; transform: translateY(-50%);
+}
+
 .center { 
   top: 50% !important; left: 50% !important; 
   transform: translate(-50%, -50%) !important;
@@ -142,10 +150,10 @@
 .td-lt { text-decoration: line-through !important }
 .td-o { text-decoration: overline !important }
 
-.td-u-col { text-decoration-color: var(--col); text-decoration: underline !important }
-.td-w-col { text-decoration-color: var(--col); text-decoration: wavy !important }
-.td-lt-col  { text-decoration-color: var(--col); text-decoration: line-through !important }
-.td-o-col { text-decoration-color: var(--col); text-decoration: overline !important }
+.td-u-col {text-decoration: underline !important;  text-decoration-color: var(--col);  }
+.td-w-col {text-decoration: wavy !important;  text-decoration-color: var(--col);  }
+.td-lt-col  {text-decoration: line-through !important;  text-decoration-color: var(--col);  }
+.td-o-col {text-decoration: overline !important;  text-decoration-color: var(--col);  }
 
 .overline { text-decoration: overline !important}
 .underline { text-decoration: underline !important}

@@ -52,8 +52,8 @@ class Profile(models.Model):
     image = models.ImageField(default='no-person.png', upload_to='profile_pic')
     account_balance = models.FloatField(default=0)
     approved = models.BooleanField(default = False)
-    fullname = models.CharField(max_length=30, blank=False)
-    socialmedia = models.URLField(verbose_name='Fiverr, Upwork, Linkedin...')
+    fullname = models.CharField(max_length=30, blank=False, verbose_name='Full name')
+    socialmedia = models.URLField(verbose_name='Social Media URL')
 
     def firstname(self):
         return self.fullname.split()[0]

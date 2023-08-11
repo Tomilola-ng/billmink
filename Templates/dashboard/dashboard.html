@@ -2,45 +2,113 @@
 {% load static %}
 
 {% block pages %}
-    <section id="dashboard" class="mt-3 row jc-sb fw-w pos-relative mh-60vh m-auto lg_w-70">
+    <section id="dashboard" class="mt-3 row jc-sb fw-w mh-60vh m-auto lg_w-70">
 
-        <div id="profile-rack" class="col container mxw-300 bdrs pb-4 as-fs plr-2">            
+        <figure id="profile-rack" class="col container mxw-300 bdrs pb-4 as-fs plr-2">            
             <div class="row jc-sb w-100">
                 <div class="w-50px h-50px bdrs-circle bg-col mr-2 as-fe bd-2-col">
+                    {% if user.profile.image %}
                     <img src="{{ user.profile.image.url }}" alt="img">
+                    {% else %}
+                    <img src="" alt="img">
+                    {% endif %}
                 </div>
-                <span class="fw-br ta-c fs-6"> {{ user.profile.firstname }} </span>
+                <span class="fw-b ta-c fs-6"> {{ user.profile.firstname }} </span>
                 <a 
-                href="{% url 'profileUpdate_view' user.id %}"  class="ep-pencil-fill fs-5 mb-0"></a>
+                href="{% url 'profile_update_view' user.id %}"  class="ep-pencil-fill fs-5 mb-0"></a>
             </div>
             <div class="gap"></div>
             <div class="card container col secondary plr-3" id="profile_card">
 
                 <div class="w-100">
-                    <div class="fs-7 m-0 p-0 row jc-sb w-60"> <span> Transaction History </span> <span class="ep-ey fs-6 mr-4"></span> </div>
+                    <div class="fs-7 m-0 p-0 row jc-sb w-60"> <span> Total Balance </span> <span class="ep-ey fs-6 mr-4"></span> </div>
                     <p class="fs-4 bolder pt-0 mt-0"> ₦ {{ user.profile.account_balance }} </p>
                 </div>
                 
-                <div class="row jc-sb w-100 fs-6 mt-2">
-                    <a href="{% url 'billCreate_view' %}" class="col fs-7">
-                        <span class="fs-5 btn secondary-alt ep-arrow-down-left-circle"></span>
+                <div class="row jc-sb w-100 fs-6 mt-3">
+                    <a href="{% url 'bill_create_view' %}" class="col fs-7">
+                        <span class="fs-5 btn secondary-alt ep-plus-circle mb-1"></span>
                             New Bill 
                     </a>
 
                     <a href="{% url 'withdraw_view' %}" class="col fs-7">
-                        <span class="fs-5 btn secondary-alt ep-arrow-up-right-circle"></span>
-                            Withdraw 
+                        <span class="fs-5 btn secondary-alt ep-arrow-bar-up mb-1"></span>
+                            Transfer
                     </a>
 
                     <a href="{% url 'activity_view' %}" class="col fs-7">
-                        <span class="fs-5 btn secondary-alt ep-person"></span>
-                        History 
+                        <span class="fs-5 btn secondary-alt ep-journals mb-1"></span>
+                        Activity 
                     </a>                        
                 </div>
             </div>
-        </div>
+            <div class="gap"></div>
+            {% if user.page_user %}
+            <div class="bdrs bg-white container col observe_anim">
+                
+                <div style="padding-top: 56.25%;" class="card w-100 o-hide col bdrs pos-relative">
+                    <img src="{{  user.page_user.image.url }}" class="img w-100 pos-absolute top-left" alt="{{  user.page_user.slug }}">
+                    <a href="{% url 'campaign_update_image_view' user.page_user.slug %}" class="pos-absolute bdrs-circle bg-white bd-2-col col ep-pen bottom-right p-2 fs-5 f-black"></a>
+                </div>
 
-        {% include 'dashboard/dashboard_2.html' %}
-        {% include 'dashboard/dashboard_js.html' %}
+                <span class="bold fs-5 w-100 f-dark-blue"> {{  user.page_user.name }} </span>
+                <div class="w-100">
+                    <span class="f-grey"> 
+                        Your page has 
+                        <b class="bolder f-col mlr-1"> {{ user.page_user.hit_count.hits }} </b>
+                        {{ user.page_user.hit_count.hits|pluralize:"click,clicks" }} 
+                    </span>
+                </div>
+                <div class="w-100 mbt-2 row jc-sb">
+                    <a href="{% url 'campaign_detail_view' user.page_user.slug %}" class="btn secondary mbt-2 plr-3 bdrs-pill hover_secondary-alt"> View >> </a>
+                    <a href="{% url 'campaign_update_view' user.page_user.slug %}" class="btn secondary mbt-2 plr-3 bdrs-pill hover_secondary-alt"> Edit >> </a>
+                </div>
+            </div>
+
+            {% else %}
+            <div class="bdrs bg-white container f-dark-blue p-2 pb-3">
+                    <p class="f-dark-blue bold m-0 fs-5"> Create campaign page </p>
+                    <p class="f-dark-blue mbt-2 f-grey">
+                        Receive money from people from all over the world with a page.
+                    </p>
+                    <a href="{% url 'campaign_create_view' %}" class="btn secondary"> Campaign <i class="ep-plus-circle fs-6 f-inherit ml-1"></i> </a>
+                </div>
+            {% endif %}
+        </figure>
+
+        <figure id="bill-rack" class="mxw-400 sm_mxw-300 container bdrs row jc-sb p-0 plr-1 as-fs">
+            <fieldset class="bdrs bd-1-col container m-0 m-auto">
+                <legend class="plr-1 fs-5 sm_ta-c bolder">
+                    {% if bills %}
+                        All Bills 
+                    {% else %}
+                        0 bills created
+                    {% endif %}
+                </legend>
+        
+                {% if bills %}
+                    {% for bill in bills %}
+                        {% if bill.paid %}
+                            {% include 'includes/paidbill.html' %}
+                            {% include 'includes/billdetail.html' %}
+                        {% else %}
+                            {% include 'includes/billdetail.html' %}
+                            {% include 'includes/bill.html' %}
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    {% include 'includes/nobill.html' %}
+                {% endif %}
+            </fieldset>
+        </figure>
+        
+        
+        <script>
+            function toggleModal(modal_id) {
+                let Modal = document.getElementById(modal_id);
+                Modal.classList.toggle('dp-none');    
+            }
+        </script>
+        <script src="{% static 'JS/dashboard.js' %}"></script>
     </section>
 {% endblock pages %}

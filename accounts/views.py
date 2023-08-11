@@ -1,5 +1,5 @@
-from bills.models import Bill
 from django.urls import reverse
+from bills.models import Bill, Activity
 from datetime import timedelta, datetime
 from django.shortcuts import render, redirect
 from accounts.models import Profile, Withdraw
@@ -28,6 +28,15 @@ def about(req):
 def agreement(req):
     return render(req, 'core/agreement.html')
 
+def activity(request):
+    obj = reversed(Activity.objects.filter(profile = request.user.profile))
+    
+    context = {
+        'obj': obj,
+    }
+
+    return render(request, 'accounts/activity.html', context)
+
 """
     Auth Views
 """
@@ -52,6 +61,7 @@ def register(req):
             profile.save()
             return redirect('signup_done_view')
         else:
+            context['error'] = 'Something went wrong, Try again soon'
             return render(req, 'auth/register.html', context )
     return render(req, 'auth/register.html', context )
 
@@ -72,7 +82,7 @@ def signup_done(req):
     Custom Views : Classes
 """
 
-class UpdateProfile(LoginRequiredMixin, UserPassesTestMixin , UpdateView):
+class update_profile(LoginRequiredMixin, UserPassesTestMixin , UpdateView):
     model = Profile
     template_name = 'accounts/form.html'
     fields = ['fullname', 'socialmedia']
@@ -99,7 +109,7 @@ class UpdateProfile(LoginRequiredMixin, UserPassesTestMixin , UpdateView):
 
 class WithdrawForm(LoginRequiredMixin, CreateView):
     model = Withdraw
-    template_name = 'withdraw/form.html'
+    template_name = 'withdraw/withdraw_form.html'
     fields = ['amount', 'account_number', 'account_name', 'bank_name']
     
     def form_valid(self, form):

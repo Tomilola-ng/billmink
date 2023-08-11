@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pages %}
+
+<section id="campaign" class="col w-100 m-auto mh-90vh">
+
+    <!-- Landing Page -->
+    <article class="md_mxw-600 sm_mxw-300 m-auto lg_p-2 ta-c mt-5">
+        <h1 class="fs-1 bolder observe_anim"> Create <br class="sm_dp-none"> Campaign Pages Easily </h1>
+        <p class="f-gray mt-3 pt-0">
+            Create a campaign page for accepting donations, for raising funds, charity events, contributions, donations, 
+        </p>
+        <div class="mbt-5">
+            <a href="{% url 'register_view' %}" class="secondary btn plr-4 pbt-3 bdrs-pill ep-arrow-right-circle fs-4 bold observe_anim anim_right hover_secondary-alt"> Get Started </a>
+        </div>
+    </article>
+
+    <article id="campaign_container" class="w-95 mxw-1100 mh-70vh bg-white card mt-4 container f-dark-blue">
+        <div style="overflow-x: auto;" class="w-100 mb-3">
+            <ul style="white-space: nowrap;" class="dp-flex md_row p-2 m-0">
+                <li id="all" style="flex: 0 0 auto;" class="filter-btn btn secondary active_btn mlr-1 mb-0 ta-c bdrs-pill plr-3"> All </li>
+
+                <li id="funding" style="flex: 0 0 auto;" class="filter-btn btn bd-2-col secondary-alt mlr-1 mb-0 ta-c bdrs-pill plr-3"> Funding </li>
+                <li id="charity" style="flex: 0 0 auto;" class="filter-btn btn bd-2-col secondary-alt mlr-1 mb-0 ta-c bdrs-pill plr-3"> Charity </li>
+                <li id="donations" style="flex: 0 0 auto;" class="filter-btn btn bd-2-col secondary-alt mlr-1 mb-0 ta-c bdrs-pill plr-3"> Donations </li>
+                <li id="financing" style="flex: 0 0 auto;" class="filter-btn btn bd-2-col secondary-alt mlr-1 mb-0 ta-c bdrs-pill plr-3"> Financing </li>
+                <li id="appreciation" style="flex: 0 0 auto;" class="filter-btn btn bd-2-col secondary-alt mlr-1 mb-0 ta-c bdrs-pill plr-3"> Appreciation </li>
+                <li id="contribution" style="flex: 0 0 auto;" class="filter-btn btn bd-2-col secondary-alt mlr-1 mb-0 ta-c bdrs-pill plr-3"> Contributions </li>
+                <li id="support" style="flex: 0 0 auto;" class="filter-btn btn bd-2-col secondary-alt mlr-1 mb-0 ta-c bdrs-pill plr-3"> Support </li>
+            </ul>
+        </div>
+        
+        <div class="row fw-w mh-50vh">
+        {% for campaign in campaigns %}
+            <a title="{{ campaign.donation_type }}" href="{% url 'campaign_detail_view' campaign.slug %}" class="campaign_card card container w-90 mxw-250 col observe_anim">
+                
+                <div style="padding-top: 56.25%;" class="card w-100 o-hide col bdrs pos-relative">
+                    <img src="{{ campaign.image.url }}" class="img w-100 pos-absolute top-left zi-5" alt="{{ campaign.slug }}">
+                </div>
+
+                <span style="min-height: 60px; max-height: 60px;" class="bold fs-5 w-100 o-hide f-dark-blue"> {{ campaign.name }} </span>
+                <div class="w-100">
+                    <span class="f-gray fs-7"> {{ campaign.donation_type }} </span>
+                    <span class="f-gray fs-7 ml-3"> {{ campaign.created|date:'Y-m-d' }} </span>
+                </div>
+                <div class="w-100 mbt-2">
+                    <span class="btn secondary mbt-2 plr-3 bdrs-pill hover_secondary-alt"> More >> </span>
+                </div>
+            </a>
+            {% empty %}
+
+            <h1 class="fs-1 f-dark-blue">
+                No Campaigns Yet
+            </h1>
+        {% endfor %} 
+        
+        <h1 id="msg" class="dp-none fs-1 f-dark-blue">
+            No Campaigns Yet
+        </h1>
+        </div>
+            
+    </article>
+    
+</section>
+
+<script>
+    let filter_btns = document.querySelectorAll('.filter-btn');
+    let campaign_card = document.querySelectorAll('.campaign_card');
+    
+    filter_btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            let active_btn = document.querySelector('.active_btn');
+
+            active_btn.classList.remove('secondary');
+            active_btn.classList.remove('active_btn');
+            active_btn.classList.add('bd-2-col');
+            active_btn.classList.add('secondary-alt');
+
+            btn.classList.add('secondary');
+            btn.classList.add('active_btn');
+            btn.classList.remove('bd-2-col');
+            btn.classList.remove('secondary-alt');
+
+            let btn_type = btn.id;
+            let hidden_card = 0
+            campaign_card.forEach(card => {
+                if (btn_type == 'all') {
+                    return card.classList.remove('dp-none') 
+                } else if (card.title.toLowerCase() == btn_type) {
+                    card.classList.remove('dp-none')
+                } else {
+                    hidden_card += 1;
+                    card.classList.add('dp-none')
+                }
+            });
+
+            if ( campaign_card.length == hidden_card) {
+                document.querySelector('#msg').classList.remove('dp-none');
+            } else {
+                document.querySelector('#msg').classList.add('dp-none');
+            }
+        })
+    });
+
+</script>
+
+{% include 'includes/footer.html' %}
+{% endblock pages %}

@@ -1,0 +1,112 @@
+{% extends 'base.html' %} {% load static %}
+
+{% block pages %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <section id="login" class="mh-80vh mxw-900 row fw-w ai-fs m-auto">
+        <main class="mxw-400 w-95 m-auto">
+            <p class="f-col bold fs-4"> {{ campaign.name }} </p>
+    
+            <div style="padding-top: 56.25%;" class="card w-100 o-hide col bdrs pos-relative">
+                <img src="{{ campaign.image.url }}" class="w-100 pos-absolute top-left" alt="{{ campaign.slug }}">
+            </div>
+            <br>
+            <p class="o-6 f-gray">
+                Fill in details to continue with your donations
+            </p>
+            <br>
+            <p>
+              <label for="payAmount"> Donation Amount ( ₦ ) : </label>
+              <input type="number" name="payAmount" id="payAmount">
+            </p>
+            <p>
+              <label for="payMail"> Your email : </label>
+              <input type="email" name="payMail" id="payMail">
+            </p>
+            <button id="payBtn" class="btn primary mt-3 w-120px dp-none">Pay💴</button>
+
+            <div class="row jc-sb mt-5">
+              {% if not user.page_user %}
+                <a href="{% url 'register_view' %}" class="f-col fs-7 bold"> Create your bill now » </a>
+                {% endif %}
+                <a href="{% url 'agreement_view' %}" class="f-col fs-7">T's and C's</a>
+            
+            </div>
+        </main>
+
+        <aside class="m-auto mxw-350 w-95">
+          <b class="fs-4 bold f-col">
+            Details :
+          </b>
+          <div class="container">
+            <small class="bold f-gray row jc-sb ta-l"> Organised By : <span class="ta-r">{{ campaign.user.profile.fullname }}</span> </small>
+            <br>
+            <small class="bold f-gray row jc-sb ta-l"> Date : <span class="ta-r">{{ campaign.created }}</span> </small>
+            <br>
+            <small class="bold f-gray row jc-sb ta-l"> Goal Amount : <span class="ta-r">{{ campaign.currency }} {{ campaign.goal_amount }} </span></small>
+            <br>
+            <small class="bold f-gray row jc-sb ta-l"> Amount Raised : <span class="ta-r">{{ campaign.currency }} {{ campaign.current_amount }} </span></small>
+          </div>
+
+          <div class="gap h-5vh"></div>
+
+          <div class="container bg-white card pbt-3 p-2 row fw-w jc-sb">
+              <p class="bolder f-dark-blue fs-4 mb-2">  </p>
+              <a href="{% url 'campaign_create_view' %}" class="w-100 btn secondary bdrs-pill ta-c pbt-3 bold">
+                  <i class="ep-arrow-right-circle"></i> Create your Campaign page
+              </a>
+          </div>
+        
+          <div class="container p-2 bdrs bg-white">
+    
+            <p class="fs-4 bold f-dark-blue"> Users who donated </p>
+            <small class="f-col bold"> Total Donors : {{ campaign.donors.count }} </small>
+            <hr class="o-1 f-dark-blue">
+    
+            {% for donor in campaign.donors.all|slice:":6" %}
+            
+            <div class="row jc-sa mb-3">
+                <img src="{{ donor.profile.image.url }}" alt="{{ donor.profile }}" class="bdrs-circle h-50px w-50px">
+                <p class="bold fs-5 ml-2 f-dark-blue"> {{ donor.profile.firstname }} </p>
+            </div>
+            <hr class="o-1 f-dark-blue">
+            
+            {% endfor %}
+          </div>
+        </aside>
+    </section>
+    
+    <script src="https://checkout.flutterwave.com/v3.js"></script>
+
+    <script>
+
+      let payMail = document.getElementById('payMail');
+      let payBtn = document.getElementById('payBtn');
+  
+      let  b_amount = "{{ bill.amount }}"
+      let  b_currency = "{{ bill.currency }}"
+      let  b_ref = "{{ bill.ref }}"
+      let  b_public_key = "{{ public_key }}"
+    
+    function validateEmail() {
+      const emailInput = document.getElementById('payMail');
+      const emailValue = emailInput.value.trim();
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (emailRegex.test(emailValue)) {
+        payBtn.classList.remove('dp-none');
+        payBtn.classList.add('right-in');
+        return False;
+      } else {
+         if (!payBtn.classList.contains('dp-none')) {
+          payBtn.classList.add('dp-none');
+          payBtn.classList.remove('right-in');
+        }
+      }
+    }
+
+    const emailInput = document.getElementById('payMail');
+    emailInput.addEventListener('input', validateEmail);
+    </script>
+{% endblock pages %}

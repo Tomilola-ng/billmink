@@ -13,7 +13,6 @@ class UserAdminCreationForm(UserCreationForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['fullname', 'socialmedia']
+        fields = ['fullname']
 
     fullname = forms.CharField(label='Full name')
-    socialmedia = forms.URLField(validators=[URLValidator()], required=True, label='Social Media URL')        

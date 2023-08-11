@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Campaigns ~ {{ campaign.name }} {% endblock title %}
+{% block pages %}
+<section id="bill" class="w-100 mxw-900 row jc-sa ai-fs fw-w m-auto sm_w-90">
+
+    <aside class="container md_w-60 m-auto mt-0 pt-0">
+
+        <h1 class="f-inherit bolder fs-3 mt-3"> {{ campaign.name }} </h1>
+
+        <div style="padding-top: 56.25%;" class="card w-100 o-hide col bdrs pos-relative">
+            <img src="{{ campaign.image.url }}" class="w-100 pos-absolute top-left" alt="{{ campaign.slug }}">
+        </div>
+
+        <div class="container">
+            <small class="bold f-gray row jc-sb ta-l"> Organised By : <span class="ta-r">{{ campaign.user.profile.fullname }}</span> </small>
+            <br>
+            <small class="bold f-gray row jc-sb ta-l"> Date : <span class="ta-r">{{ campaign.created }}</span> </small>
+            <br>
+            <small class="bold f-gray row jc-sb ta-l"> Goal Amount : <span class="ta-r">{{ campaign.currency }} {{ campaign.goal_amount }} </span></small>
+            <br>
+            <small class="bold f-gray row jc-sb ta-l"> Amount Raised : <span class="ta-r">{{ campaign.currency }} {{ campaign.current_amount }} </span></small>
+        </div>
+            
+        <hr> 
+        
+        <div class="w-100 row">
+            <a href="{% url 'campaign_donate_view' campaign.slug %}" class="btn secondary container mr-2 fs-5 bold ta-c p-3 pbt-2 mbt-2"> Donate </a>
+            <span onclick="shareLink('{{ li_nk }}')" class="btn secondary container ml-2 fs-5 bold ta-c p-3 pbt-2 mbt-2"> Share </span>
+        </div>
+    
+        <div class="gap mbt-4"></div>
+        <div style="white-space: pre-line;"> {{ campaign.description | safe }} </div>
+
+        <div class="gap mbt-4 h-5vh"></div>
+        <div class="container bg-white card pbt-3 p-2 row fw-w jc-sb">
+            <p class="bolder f-dark-blue fs-4 mb-2">  </p>
+            <a href="{% url 'campaign_create_view' %}" class="w-100 btn secondary bdrs-pill ta-c pbt-3 bold fs-5">
+                <i class="ep-arrow-right-circle"></i> Create your Campaign page
+            </a>
+        </div>
+    </aside>
+    
+    <aside class="container p-2 md_w-35 bdrs bg-white">
+
+        <p class="fs-4 bold f-dark-blue"> Users who donated </p>
+        <small class="f-col bold"> Total Donors : {{ campaign.donors.count }} </small>
+        <hr class="o-1 f-dark-blue">
+
+        {% for donor in campaign.donors.all|slice:":6" %}
+        
+        <div class="row jc-sa mb-3">
+            <img src="{{ donor.profile.image.url }}" alt="{{ donor.profile }}" class="bdrs-circle h-50px w-50px">
+            <p class="bold fs-5 ml-2 f-dark-blue"> {{ donor.profile.firstname }} </p>
+        </div>
+        <hr class="o-1 f-dark-blue">
+        
+        {% endfor %}
+
+    </aside>
+    
+</section>
+
+{% include 'includes/footer.html' %}
+<script src="{% static 'JS/page-detail.js' %}"></script>
+{% endblock pages %}

@@ -1,5 +1,4 @@
-
-gift_types = (
+donation_types = (
     ('Support', 'Support'),
     ('Funding', 'Funding'), 
     ('Charity', 'Charity'), 

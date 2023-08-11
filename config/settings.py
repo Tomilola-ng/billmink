@@ -28,6 +28,10 @@ INSTALLED_APPS = [
     # My apps
     'bills',
     'accounts',
+    'campaigns',
+
+    # Modules
+    'hitcount',
     'paystack',
     "phonenumber_field",
 ]
@@ -97,6 +101,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 """
 
 SITE_ID = 1
+SITE_URL = "127.0.0.1:8000"
+SITE_DOMAIN = "127.0.0.1:8000"
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
