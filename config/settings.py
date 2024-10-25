@@ -1,14 +1,22 @@
+""" Django Settings """
+
 import os
 from pathlib import Path
-from decouple import config
+
+import dj_database_url
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-DEBUG = config('DEBUG', cast=bool)
-SECRET_KEY = config('SECRET_KEY')
+DEBUG = env('DEBUG')
+SECRET_KEY = env('SECRET_KEY')
 
-PAYSTACK_SECRET_KEY = config('PAYSTACK_SECRET_KEY')
-PAYSTACK_PUBLIC_KEY = config('PAYSTACK_PUBLIC_KEY')
+PAYSTACK_SECRET_KEY = env('PAYSTACK_SECRET_KEY')
+PAYSTACK_PUBLIC_KEY = env('PAYSTACK_PUBLIC_KEY')
 
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['https://*.railway.app']
@@ -24,7 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.contenttypes',
-   
+
     # My apps
     'bills',
     'accounts',
@@ -32,7 +40,6 @@ INSTALLED_APPS = [
 
     # Modules
     'hitcount',
-    'paystack',
     "phonenumber_field",
 ]
 
@@ -69,10 +76,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse(env('DATABASE_URL'))
 }
 
 # Password validation
@@ -91,7 +95,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfile')
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -110,20 +114,14 @@ LOGIN_URL = 'login_view'
 LOGIN_REDIRECT_URL = 'index_view'
 LOGOUT_REDIRECT_URL = 'index_view'
 
-MEDIA_URL='/media/'
-MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-DOMAIN_PATH = config('DOMAIN_PATH')
+DOMAIN_PATH = 'http://127.0.0.1:8000'
 
 """
     Deployment Settings
 """
 
-# Update database configuration from $DATABASE_URL.
-# import dj_database_url
-# db_from_env = dj_database_url.config(conn_max_age=500)
-# DATABASES['default'].update(db_from_env)
-
 # Simplified static file serving.
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
