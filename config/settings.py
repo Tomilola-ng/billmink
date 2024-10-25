@@ -19,7 +19,7 @@ PAYSTACK_SECRET_KEY = env('PAYSTACK_SECRET_KEY')
 PAYSTACK_PUBLIC_KEY = env('PAYSTACK_PUBLIC_KEY')
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://*.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://billmink.onrender.com']
 
 
 # Application definition
@@ -117,7 +117,7 @@ LOGOUT_REDIRECT_URL = 'index_view'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-DOMAIN_PATH = 'http://127.0.0.1:8000'
+DOMAIN_PATH = 'https://billmink.onrender.com/'
 
 """
     Deployment Settings
